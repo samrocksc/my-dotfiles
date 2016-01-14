@@ -7,12 +7,13 @@
 
 execute pathogen#infect()
 set background=dark
-colorscheme hybrid
+colorscheme molokai 
 syntax on
 filetype plugin on
 filetype plugin indent on
 let g:vim_markdown_folding_disabled=1 "disables folding of markdown
 let g:AutoPairsFlyMode = 0
+let g:syntastic_javascript_checkers = ['eslint']
 
 set smartindent
 set autoindent
