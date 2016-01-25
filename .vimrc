@@ -1,9 +1,8 @@
 "My Current Vim Modules
 "---------
-"VimClojure                      flattened                       nerdtree-git-plugin             vim-addon-mw-utils              vim-colors-solarized            vim-indent-guides               vim-markdown                    vim-solarized-powerline
-"auto-pairs                      gnome-terminal-colors-solarized supertab                        vim-airline                     vim-fugitive                    vim-javascript                  vim-sensible                    vim-trailing-whitespace
-"ctrlp.vim                       nerdcommenter                   syntastic                       vim-autotag                     vim-gitgutter                   vim-jsbeautify                  vim-snipmate
-"eslint                          nerdtree                        tlib_vim                        vim-colors-lunatic              vim-hybrid                      vim-jsx                         vim-snippets
+"VimClojure                      ctrlp.vim                       gnome-terminal-colors-solarized nerdtree-git-plugin             tlib_vim                        vim-autotag                     vim-fugitive                    vim-indent-guides               vim-jsx                         vim-sensible                    vim-solarized-powerline
+"ag.vim                          eslint                          nerdcommenter                   supertab                        vim-addon-mw-utils              vim-colors-lunatic              vim-gitgutter                   vim-javascript                  vim-markdown                    vim-snipmate                    vim-trailing-whitespace
+"auto-pairs                      flattened                       nerdtree                        syntastic                       vim-airline                     vim-colors-solarized            vim-hybrid                      vim-jsbeautify                  vim-mustache-handlebars         vim-snippets
 
 execute pathogen#infect()
 set background=dark
