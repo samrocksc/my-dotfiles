@@ -14,6 +14,9 @@ let g:vim_markdown_folding_disabled=1 "disables folding of markdown
 let g:AutoPairsFlyMode = 0
 let g:syntastic_javascript_checkers = ['eslint']
 
+let g:ag_working_path_mode="r"
+
+
 set smartindent
 set autoindent
 set autoread                                                 " reload files when changed on disk, i.e. via `git checkout`
