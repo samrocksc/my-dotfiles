@@ -1,3 +1,6 @@
+mkdir ~/.vim/autoload &
+mkdir ~/.vim/bundle &
+cd ~/.vim/bundle &
 git clone https://github.com/scrooloose/nerdtree &
 git clone https://github.com/jiangmiao/auto-pairs &
 git clone https://github.com/kien/ctrlp.vim &
@@ -18,4 +21,5 @@ git clone https://github.com/tpope/vim-markdown &
 git clone https://github.com/tpope/vim-sensible &
 git clone https://github.com/garbas/vim-snipmate &
 git clone https://github.com/honza/vim-snippets &
-git clone https://github.com/bronson/vim-trailing-whitespace
+git clone https://github.com/bronson/vim-trailing-whitespace &
+git clone https://github.com/mxw/vim-jsx

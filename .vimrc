@@ -15,6 +15,7 @@ let g:AutoPairsFlyMode = 0
 let g:syntastic_javascript_checkers = ['eslint']
 
 let g:ag_working_path_mode="r"
+let g:jsx_ext_required = 0
 
 
 set smartindent
