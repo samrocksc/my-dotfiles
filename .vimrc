@@ -10,9 +10,28 @@ colorscheme molokai
 syntax on
 filetype plugin on
 filetype plugin indent on
-let g:vim_markdown_folding_disabled=1 "disables folding of markdown
-let g:AutoPairsFlyMode = 0
+" Synastic
+" Make sure you have these installe npm i -g estraverse estraverse-fb eslint-plugin-react babel-eslint
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_loc_list_height = 5
+let g:syntastic_auto_loc_list = 0
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 1
 let g:syntastic_javascript_checkers = ['eslint']
+
+let g:syntastic_error_symbol = '❌'
+let g:syntastic_style_error_symbol = '⁉️'
+let g:syntastic_warning_symbol = '⚠️'
+let g:syntastic_style_warning_symbol = '💩'
+
+highlight link SyntasticErrorSign SignColumn
+highlight link SyntasticWarningSign SignColumn
+highlight link SyntasticStyleErrorSign SignColumn
+highlight link SyntasticStyleWarningSign SignColumn
 
 let g:ag_working_path_mode="r"
 let g:jsx_ext_required = 0
@@ -43,17 +62,6 @@ set wildmode=longest,list,full
 set expandtab
 set shiftwidth=2
 set softtabstop=2
-
-"Synastic
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
-let g:syntastic_javascript_checkers = ['eslint']
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 0
-let g:syntastic_check_on_wq = 1
 
 " keyboard shortcuts
 let mapleader = ','
