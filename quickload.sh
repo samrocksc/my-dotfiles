@@ -1,4 +1,4 @@
-npm i -g eslint estraverse estraverse-fb eslint-plugin-react babel-eslint
+npm i -g eslint estraverse estraverse-fb eslint-plugin-react babel-eslint &
 mkdir ~/.vim/autoload &
 mkdir ~/.vim/bundle &
 cd ~/.vim/bundle &

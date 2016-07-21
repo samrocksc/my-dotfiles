@@ -80,6 +80,7 @@ nnoremap <leader>e :source $MYVIMRC<CR>
 nnoremap <leader>W :FixWhitespace<CR>
 nnoremap <leader>s :SyntasticCheck<CR>
 nnoremap <leader>S :SyntasticToggleMode<CR>
+nnoremap <leader>z :Errors<CR>
 
 " Enable basic mouse behavior such as resizing buffers.
 set mouse=a
