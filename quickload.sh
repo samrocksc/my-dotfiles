@@ -1,3 +1,6 @@
+#Move the config files
+cp -R .oh-my-zsh ~ &
+cp .eslintrc .vimrc .zshrc .ctags ~ &
 mkdir -p ~/.vim/autoload ~/.vim/bundle && \
 curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim &&
 npm i -g eslint estraverse estraverse-fb eslint-plugin-react babel-eslint &
