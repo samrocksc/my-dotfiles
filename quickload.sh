@@ -1,3 +1,5 @@
+mkdir -p ~/.vim/autoload ~/.vim/bundle && \
+curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim &&
 npm i -g eslint estraverse estraverse-fb eslint-plugin-react babel-eslint &
 mkdir ~/.vim/autoload &
 mkdir ~/.vim/bundle &
