@@ -4,8 +4,6 @@ cp -R .oh-my-zsh ~ &
 cp .eslintrc .vimrc .zshrc .ctags ~ &
 mkdir -p ~/.vim/autoload ~/.vim/bundle && \
 curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim &&
-mkdir ~/.vim/autoload &
-mkdir ~/.vim/bundle &
 cd ~/.vim/bundle &
 git clone https://github.com/scrooloose/nerdtree &
 git clone https://github.com/jiangmiao/auto-pairs &
