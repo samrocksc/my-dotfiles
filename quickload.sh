@@ -1,7 +1,6 @@
 #Move the config files
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)" &
 npm i -g eslint estraverse estraverse-fb eslint-plugin-react babel-eslint &
-cp .eslintrc .vimrc .zshrc .ctags .tmux.conf ~ &
 mkdir -p ~/.vim/autoload ~/.vim/bundle &
 curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim &
 cd ~/.vim/bundle &
@@ -26,4 +25,5 @@ git clone https://github.com/tpope/vim-sensible ~/.vim/bundle/vim-sensible &
 git clone https://github.com/garbas/vim-snipmate ~/.vim/bundle/vim-snipmate &
 git clone https://github.com/honza/vim-snippets ~/.vim/bundle/vim-snippets &
 git clone https://github.com/bronson/vim-trailing-whitespace ~/.vim/bundle/vim-trailing-whitespace &
-git clone https://github.com/mxw/vim-jsx ~/.vim/bundle/vim-jsx
+git clone https://github.com/mxw/vim-jsx ~/.vim/bundle/vim-jsx &
+
