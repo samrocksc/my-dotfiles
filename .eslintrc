@@ -27,7 +27,7 @@
     "no-unused-vars": 1,
     "no-undef": 0,
     "no-extra-semi": 1,
-    "semi": [2, "always"]
+    "semi": [2, "always"],
     "no-case-declarations": 0
   }
 }
