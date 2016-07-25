@@ -26,4 +26,5 @@ git clone https://github.com/garbas/vim-snipmate ~/.vim/bundle/vim-snipmate &
 git clone https://github.com/honza/vim-snippets ~/.vim/bundle/vim-snippets &
 git clone https://github.com/bronson/vim-trailing-whitespace ~/.vim/bundle/vim-trailing-whitespace &
 git clone https://github.com/mxw/vim-jsx ~/.vim/bundle/vim-jsx &
+git clone git clone https://github.com/mustache/vim-mustache-handlebars ~/.vim/bundle/vimm-mustache-handlebars &
 
