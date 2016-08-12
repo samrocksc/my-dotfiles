@@ -1,6 +1,6 @@
 execute pathogen#infect()
 set background=dark
-colorscheme molokai
+colorscheme duotone-darkforest
 syntax on
 filetype plugin on
 filetype plugin indent on
