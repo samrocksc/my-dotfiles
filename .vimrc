@@ -2,7 +2,6 @@ execute pathogen#infect()
 set background=dark
 colorscheme duotone-darkforest
 syntax on
-filetype plugin on
 filetype plugin indent on
 " Synastic
 " Make sure you have these installe npm i -g estraverse estraverse-fb eslint-plugin-react babel-eslint
