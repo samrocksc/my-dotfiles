@@ -1,6 +1,6 @@
 execute pathogen#infect()
 set background=dark
-colorscheme duotone-darkforest
+colorscheme elrond
 syntax on
 filetype plugin indent on
 " Synastic
