@@ -29,4 +29,4 @@ git clone https://github.com/bronson/vim-trailing-whitespace ~/.vim/bundle/vim-t
 git clone https://github.com/mxw/vim-jsx ~/.vim/bundle/vim-jsx &
 git clone https://github.com/flazz/vim-colorschemes ~/.vim/bundle/vim-colorschemes &
 git clone git clone https://github.com/mustache/vim-mustache-handlebars ~/.vim/bundle/vimm-mustache-handlebars &
-
+chsh -s /bin/zsh &
