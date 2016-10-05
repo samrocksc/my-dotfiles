@@ -5,7 +5,7 @@ options=("A" "B" "C")
 
 echo "$title"
 PS3="$prompt "
-options=("Install Ubuntu Applications" "Install rPI Applications" "Install Mac Applications" "Install VPS Applications" "Install Windows Apps" "Copy Ubuntu Dotfiles" "Copy rPI Dotfiles" "Copy Mac Dotfiles" "Copy VPS Dotfiles" "Use Standard Keyboard" "Use Mac Keyboard" "Clear your Dotfiles" "Quit")
+options=("Install Ubuntu Applications" "Install rPI Applications" "Install Mac Applications" "Install VPS Applications" "Install Windows Apps" "Copy Ubuntu Dotfiles" "Copy rPI Dotfiles" "Copy Mac Dotfiles" "Copy VPS Dotfiles" "Use Standard Keyboard" "Use Mac Keyboard" "NPM Permission Fix *********Ubuntu/Debian ONLY**********" "Clear your Dotfiles" "Quit")
 select opt in "${options[@]}"
 do
   case $opt in
@@ -26,7 +26,7 @@ do
       sh .ubuntu/.apps.sh &
       ;;
     "Install Windows Apps")
-      echo "20 years of Open source suppression does not make windows part of my community."
+      echo "'If Microsoft ever does applications for linux, it means I've won' -Linus Torvalds"
       ;;
     "Copy Ubuntu Dotfiles")
       echo "Copying Ubuntu Dotfiles"
@@ -34,15 +34,15 @@ do
       ;;
     "Copy rPI Dotfiles")
       echo "Copying ubuntu Dotfiles"
-      sh ./.pi/.pdotfiles.sh &
+      sh .pi/.pdotfiles.sh &
       ;;
     "Copy Mac Dotfiles")
       echo "Copying ubuntu Dotfiles"
-      sh ./.mac/.cpdotfiles.sh &
+      sh .mac/.cpdotfiles.sh &
       ;;
     "Copy VPS Dotfiles")
       echo "Copying Mac dotfiles"
-      sh ./.vps/.cpdotfiles.sh &
+      sh .vps/.cpdotfiles.sh &
       ;;
     "Use Standard Keyboard")
       echo "Xmodmap standard keyboard"
@@ -51,6 +51,10 @@ do
     "Use Mac Keyboard")
       echo "Xmodmap for mac keyboard"
       xmodmap ./.Xmodmap.mac &
+      ;;
+    "NPM Permission Fix *********Ubuntu/Debian ONLY**********")
+      echo "Fixing Permissions"
+      sh ./.fixnpm.sh
       ;;
     "Clear your Dotfiles")
       echo "Clearing dotfiles..."

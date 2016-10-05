@@ -1,8 +1,10 @@
 # My Dot Files
+---
 
 They're awesome right?  Just remember that everything I'm making here is completely opinionated.  The good news is this is the source, and you can change whatever you want!!
 
 ## Requirements
+---
 
 ### MacOS:
 
@@ -16,7 +18,27 @@ They're awesome right?  Just remember that everything I'm making here is complet
 - Debian/Ubuntu
 - Preferably git, but the initial scripts should get this.
 
-I'm just starting with the menus in the bash script, these will improve.  I will implement more package managers hopefully in the future.  The VPS code is intended for an Ubuntu/Debian server.  I like to do a lot of my development from Digital Ocean Droplets so I can use a Chromebook for development.
+**Important: You will need to make sure you update your node install on any *nix intall with [https://docs.npmjs.com/getting-started/fixing-npm-permissions](This Link)**
 
-Anyways.....make sure if you're using Linux to pick the vim package that corresponds to your Desktop Environment(DE).  This will let you keep those clipboards under control.  Big hint....Ubuntu is `vim-gtk`
+## Instructions
+---
+
+```
+git clone git@github.com:samrocksc/my-dotfiles.git &&
+cd my-dotfiles &&
+./options &&
+```
+
+## TODO & Requests
+---
+
+[ ] Increased VPS scripts to make interaction with them easier.
+[ ] Auto Fix for npm permissions on *nix [https://docs.npmjs.com/getting-started/fixing-npm-permissions](Like this)
+[ ] Bash Configs
+[ ] Fedora Configs
+[ ] Arch Configs
+[ ] Create an loader for specific environments(tmux with X windows).
+[ ] More Keyboard modmaps for *nix environments.
+[ ] Xmodmap auto-load functionalities.
+
 
