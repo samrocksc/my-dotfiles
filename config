@@ -1,11 +1,11 @@
 #!/bin/bash
-title="I LOVE YOU COMPUTTTTERRRRRRR!!!"
+title="Opinionated Quick Setups"
 prompt="Pick an option:"
 options=("A" "B" "C")
 
 echo "$title"
 PS3="$prompt "
-options=("Install Ubuntu Applications" "Install rPI Applications" "Install Mac Applications" "Install VPS Applications" "Install Windows Apps" "Copy Ubuntu Dotfiles" "Copy rPI Dotfiles" "Copy Mac Dotfiles" "Copy VPS Dotfiles" "Use Standard Keyboard" "Use Mac Keyboard" "Quickload dotfiles" "NPM Permission Fix *********Ubuntu/Debian ONLY**********" "Clear your Dotfiles" "Quit")
+options=("Install Ubuntu Applications" "Install rPI Applications" "Install Mac Applications" "Install VPS Applications" "Install Windows Apps" "vim - load ubuntu vim files" "vim - load rPI files" "vim - load mac files" "vim - load vps files" "Use Standard Keyboard" "Use Mac Keyboard" "Quickload dotfiles" "NPM Permission Fix *********Ubuntu/Debian ONLY**********" "Clear your Dotfiles" "Quit")
 select opt in "${options[@]}"
 do
   case $opt in
@@ -33,23 +33,23 @@ do
       echo "'If Microsoft ever does applications for linux, it means I've won' -Linus Torvalds"
       break
       ;;
-    "Copy Ubuntu Dotfiles")
-      echo "Copying Ubuntu Dotfiles"
+    "vim - load ubuntu vim files")
+      echo "loading vim plugins..."
       sh .ubuntu/.cpdotfiles.sh &
       break
       ;;
-    "Copy rPI Dotfiles")
-      echo "Copying ubuntu Dotfiles"
+    "vim - load rPI files")
+      echo "loading vim plugins..."
       sh .pi/.cpdotfiles.sh &
       break
       ;;
-    "Copy Mac Dotfiles")
-      echo "Copying ubuntu Dotfiles"
+    "vim - load mac files")
+      echo "loading vim plugins..."
       sh .mac/.cpdotfiles.sh &
       break
       ;;
-    "Copy VPS Dotfiles")
-      echo "Copying Mac dotfiles"
+    "vim - load vps files")
+      echo "loading vim files..."
       sh .vps/.cpdotfiles.sh &
       break
       ;;
