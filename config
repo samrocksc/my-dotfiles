@@ -5,60 +5,78 @@ options=("A" "B" "C")
 
 echo "$title"
 PS3="$prompt "
-options=("Install Ubuntu Applications" "Install rPI Applications" "Install Mac Applications" "Install VPS Applications" "Install Windows Apps" "Copy Ubuntu Dotfiles" "Copy rPI Dotfiles" "Copy Mac Dotfiles" "Copy VPS Dotfiles" "Use Standard Keyboard" "Use Mac Keyboard" "NPM Permission Fix *********Ubuntu/Debian ONLY**********" "Clear your Dotfiles" "Quit")
+options=("Install Ubuntu Applications" "Install rPI Applications" "Install Mac Applications" "Install VPS Applications" "Install Windows Apps" "Copy Ubuntu Dotfiles" "Copy rPI Dotfiles" "Copy Mac Dotfiles" "Copy VPS Dotfiles" "Use Standard Keyboard" "Use Mac Keyboard" "Quickload dotfiles" "NPM Permission Fix *********Ubuntu/Debian ONLY**********" "Clear your Dotfiles" "Quit")
 select opt in "${options[@]}"
 do
   case $opt in
     "Install Ubuntu Applications")
       echo "Installing Ubuntu Apps..."
-      sh .ubuntu/.apps.sh &
+      sh .ubuntu/.apps.sh
+      break
       ;;
     "Install rPI Applications")
       echo "Installing rPI Apps..."
-      sh .pi/.apps.sh &
+      sh .pi/.apps.sh
+      break
       ;;
     "Install Mac Applications")
       echo "Installing Mac Apps"
-      sh .ubuntu/.apps.sh &
+      sh .ubuntu/.apps.sh
+      break
       ;;
     "Install VPS Applications")
       echo "Installing VPS Apps"
-      sh .ubuntu/.apps.sh &
+      sh .ubuntu/.apps.sh
+      break
       ;;
     "Install Windows Apps")
       echo "'If Microsoft ever does applications for linux, it means I've won' -Linus Torvalds"
+      break
       ;;
     "Copy Ubuntu Dotfiles")
       echo "Copying Ubuntu Dotfiles"
-      sh ./.ubuntu/.cpdotfiles.sh &
+      sh .ubuntu/.cpdotfiles.sh &
+      break
       ;;
     "Copy rPI Dotfiles")
       echo "Copying ubuntu Dotfiles"
-      sh .pi/.pdotfiles.sh &
+      sh .pi/.cpdotfiles.sh &
+      break
       ;;
     "Copy Mac Dotfiles")
       echo "Copying ubuntu Dotfiles"
       sh .mac/.cpdotfiles.sh &
+      break
       ;;
     "Copy VPS Dotfiles")
       echo "Copying Mac dotfiles"
       sh .vps/.cpdotfiles.sh &
+      break
       ;;
     "Use Standard Keyboard")
       echo "Xmodmap standard keyboard"
-      xmodmap ./.Xmodmap.ubuntu &
+      xmodmap .Xmodmap.ubuntu &
+      break
       ;;
     "Use Mac Keyboard")
       echo "Xmodmap for mac keyboard"
-      xmodmap ./.Xmodmap.mac &
+      xmodmap .Xmodmap.mac &
+      break
+      ;;
+    "Quickload dotfiles")
+      echo "Quickloading dotfiles"
+      sh .quickload.sh
+      break
       ;;
     "NPM Permission Fix *********Ubuntu/Debian ONLY**********")
       echo "Fixing Permissions"
-      sh ./.fixnpm.sh
+      sh .fixnpm.sh
+      break
       ;;
     "Clear your Dotfiles")
       echo "Clearing dotfiles..."
       rm -rf ~/.vim ~/.vimrc ~/.tmux.conf ~/.zshrc ~/.eslintrc ~/.ctags &
+      break
       ;;
     "Quit")
       break
