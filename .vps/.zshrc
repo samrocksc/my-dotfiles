@@ -10,6 +10,7 @@ ZSH_THEME="robbyrussell"
 #Comment this out if MacOSx
 source $ZSH/oh-my-zsh.sh
 # source ~/.profile
+alias pgl='sudo -i -u postgres psql'
 export PATH=~/.npm-global/bin:$PATH
 export PATH=$PATH:/usr/local/go/bin
 

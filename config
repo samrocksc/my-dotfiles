@@ -5,7 +5,7 @@ options=("A" "B" "C")
 
 echo "$title"
 PS3="$prompt "
-options=("Install Ubuntu Applications" "Install rPI Applications" "Install Mac Applications" "Install VPS Applications" "Install Windows Apps" "vim - load ubuntu vim files" "vim - load rPI files" "vim - load mac files" "vim - load vps files" "Use Standard Keyboard" "Use Mac Keyboard" "Quickload dotfiles" "NPM Permission Fix *********Ubuntu/Debian ONLY**********" "Clear your Dotfiles" "Quit")
+options=("Install Ubuntu Applications" "Install rPI Applications" "Install Mac Applications" "Install VPS Applications" "Install Windows Apps" "vim - load ubuntu vim files" "vim - load rPI files" "vim - load mac files" "vim - load vps files" "Use Standard Keyboard" "Use Mac Keyboard" "Quickload Vim Config" "NPM Permission Fix *********Ubuntu/Debian ONLY**********" "Clear your Dotfiles" "Quit")
 select opt in "${options[@]}"
 do
   case $opt in
@@ -64,7 +64,7 @@ do
       break
       ;;
     "Quickload dotfiles")
-      echo "Quickloading dotfiles"
+      echo "Quickload Vim Config"
       sh .quickload.sh
       break
       ;;

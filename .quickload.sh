@@ -1,5 +1,5 @@
 #Move the config files
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)" &
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)" &&
 npm i -g eslint estraverse estraverse-fb eslint-plugin-react babel-eslint &
 mkdir -p ~/.vim/autoload ~/.vim/bundle &
 curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim &
