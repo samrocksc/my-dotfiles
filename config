@@ -35,22 +35,22 @@ do
       ;;
     "vim - load ubuntu vim files")
       echo "loading vim plugins..."
-      sh .ubuntu/.cpdotfiles.sh
+      cd .ubuntu && sh .cpdotfiles.sh
       break
       ;;
     "vim - load rPI files")
       echo "loading vim plugins..."
-      sh .pi/.cpdotfiles.sh
+      cd .pi && sh .cpdotfiles.sh &
       break
       ;;
     "vim - load mac files")
       echo "loading vim plugins..."
-      sh .mac/.cpdotfiles.sh
+      cd .mac && sh .cpdotfiles.sh &
       break
       ;;
     "vim - load vps files")
       echo "loading vim files..."
-      sh .vps/.cpdotfiles.sh
+      cd .vps && sh .cpdotfiles.sh
       break
       ;;
     "Use Standard Keyboard")
