@@ -21,7 +21,7 @@ do
       ;;
     "Install Mac Applications")
       echo "Installing Mac Apps"
-      sh .ubuntu/.apps.sh
+      sh .mac/.apps.sh
       break
       ;;
     "Install VPS Applications")
