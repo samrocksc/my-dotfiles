@@ -4,6 +4,7 @@ npm i -g eslint estraverse estraverse-fb eslint-plugin-react babel-eslint &
 mkdir -p ~/.vim/autoload ~/.vim/bundle &
 curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim &
 cd ~/.vim/bundle &
+git clone https://github.com/editorconfig/editorconfig-vim ~/.vim/bundle/editorconfig-vim &
 git clone https://github.com/mtscout6/syntastic-local-eslint.vim ~/.vim/bundle/syntastic-local-eslint &
 git clone https://github.com/scrooloose/nerdtree ~/.vim/bundle/nerdtree &
 git clone https://github.com/jiangmiao/auto-pairs ~/.vim/bundle/auto-pairs &
