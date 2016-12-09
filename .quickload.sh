@@ -1,9 +1,10 @@
 #Move the config files
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)" &&
-npm i -g eslint estraverse estraverse-fb eslint-plugin-react babel-eslint &
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)";
+npm i -g eslint estraverse estraverse-fb eslint-plugin-react babel-eslint;
 mkdir -p ~/.vim/autoload ~/.vim/bundle &
 curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim &
 cd ~/.vim/bundle &
+git clone https://github.com/fatih/vim-go ~/.vim/bundle/vim-go &
 git clone https://github.com/editorconfig/editorconfig-vim ~/.vim/bundle/editorconfig-vim &
 git clone https://github.com/mtscout6/syntastic-local-eslint.vim ~/.vim/bundle/syntastic-local-eslint &
 git clone https://github.com/scrooloose/nerdtree ~/.vim/bundle/nerdtree &
@@ -30,4 +31,4 @@ git clone https://github.com/bronson/vim-trailing-whitespace ~/.vim/bundle/vim-t
 git clone https://github.com/mxw/vim-jsx ~/.vim/bundle/vim-jsx &
 git clone https://github.com/flazz/vim-colorschemes ~/.vim/bundle/vim-colorschemes &
 git clone git clone https://github.com/mustache/vim-mustache-handlebars ~/.vim/bundle/vimm-mustache-handlebars &
-chsh -s /bin/zsh &
+chsh -s /bin/zsh;
