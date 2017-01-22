@@ -11,22 +11,22 @@ do
   case $opt in
     "Install Ubuntu Applications")
       echo "Installing Ubuntu Apps..."
-      sh .ubuntu/.apps.sh
+      sh ubuntu/apps.sh
       break
       ;;
     "Install rPI Applications")
       echo "Installing rPI Apps..."
-      sh .pi/.apps.sh
+      sh pi/apps.sh
       break
       ;;
     "Install Mac Applications")
       echo "Installing Mac Apps"
-      sh .mac/.apps.sh
+      sh mac/apps.sh
       break
       ;;
     "Install VPS Applications")
       echo "Installing VPS Apps"
-      sh .ubuntu/.apps.sh
+      sh ubuntu/apps.sh
       break
       ;;
     "Install Windows Apps")
@@ -35,22 +35,22 @@ do
       ;;
     "vim - load ubuntu vim files")
       echo "loading vim plugins..."
-      cd .ubuntu && sh .cpdotfiles.sh
+      cd ubuntu && sh cpdotfiles.sh
       break
       ;;
     "vim - load rPI files")
       echo "loading vim plugins..."
-      cd .pi && sh .cpdotfiles.sh &
+      cd pi && sh cpdotfiles.sh &
       break
       ;;
     "vim - load mac files")
       echo "loading vim plugins..."
-      cd .mac && sh .cpdotfiles.sh &
+      cd mac && sh cpdotfiles.sh &
       break
       ;;
     "vim - load vps files")
       echo "loading vim files..."
-      cd .vps && sh .cpdotfiles.sh
+      cd .vps && sh cpdotfiles.sh
       break
       ;;
     "Use Standard Keyboard")
@@ -65,12 +65,12 @@ do
       ;;
     "Quickload dotfiles")
       echo "Quickload Vim Config"
-      sh .quickload.sh
+      sh universal/quickload.sh
       break
       ;;
     "NPM Permission Fix *********Ubuntu/Debian ONLY**********")
       echo "Fixing Permissions"
-      sh .fixnpm.sh
+      sh ubuntu/fixnpm.sh
       break
       ;;
     "Clear your Dotfiles")
