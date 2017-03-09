@@ -10,8 +10,15 @@ ZSH_THEME="robbyrussell"
 #Comment this out if MacOSx
 source $ZSH/oh-my-zsh.sh
 # source ~/.profile
+# Show open ports on linux
+alias ports='netstat -plnt'
+# connect to standard mysql shell
+alias mgl='sudo -u root -p'
+# connect to psql
 alias pgl='sudo -i -u postgres psql'
+# global npm pathing
 export PATH=~/.npm-global/bin:$PATH
+#global go path
 export PATH=$PATH:/usr/local/go/bin
 
 # Uncomment the following line to use case-sensitive completion.
