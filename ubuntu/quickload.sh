@@ -25,3 +25,4 @@ git clone https://github.com/airblade/vim-gitgutter ~/.vim/bundle/vim-gitgutter 
 git clone https://github.com/tpope/vim-sensible ~/.vim/bundle/vim-sensible ;
 git clone https://github.com/garbas/vim-snipmate ~/.vim/bundle/vim-snipmate ;
 git clone https://github.com/honza/vim-snippets ~/.vim/bundle/vim-snippets ;
+git clone https://github.com/shougo/deoplete.nvim ~/.vim/bundle/deoplete ;
