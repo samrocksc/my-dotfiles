@@ -1,6 +1,10 @@
 # Pull in Vim Config Files
 rm -rf ~/.vim/bundle ;
 mkdir -p ~/.vim/autoload ~/.vim/bundle ;
+mkdir -p ~/.config/nvim;
+cp init.vim ~/.config/nvim;
+cp .nvimrc ~;
+
 curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim ;
 cd ~/.vim/bundle ;
 
