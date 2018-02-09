@@ -24,6 +24,16 @@ They're awesome right?  Just remember that everything I'm making here is complet
 
 ### Linux:
 
+####vim setup
+I am currently using vim-plug:
+
+1. `cd ubuntu/` use this folder
+2. `./apps.sh` install apps needed
+3. `vim` Open vim
+4. `:PlugInstall` install vim-plug plugins
+5. `:UpdateRemotePlugins` update deoplete
+6. `./setupnpm.sh` update permissions for global installs with npm
+
 - Apt(probably will have it).
 - Debian/Ubuntu
 - Preferably git, but the initial scripts should get this.

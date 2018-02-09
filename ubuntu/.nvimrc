@@ -1,7 +1,32 @@
-execute pathogen#infect()
+" vim-plug
+call plug#begin()
+Plug 'scrooloose/nerdtree'
+Plug 'sheerun/vim-polyglot'
+Plug 'bronson/vim-trailing-whitespace'
+Plug 'mtscout6/syntastic-local-eslint.vim'
+Plug 'eslint/eslint'
+Plug 'ddollar/nerdcommenter'
+Plug 'tpope/vim-fugitive'
+Plug 'marcweber/vim-addon-mw-utils'
+Plug 'bling/vim-airline'
+Plug 'craigemery/vim-autotag'
+Plug 'airblade/vim-gitgutter'
+Plug 'tpope/vim-sensible'
+Plug 'flazz/vim-colorschemes'
+if has('nvim')
+  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+else
+  Plug 'Shougo/deoplete.nvim'
+  Plug 'roxma/nvim-yarp'
+  Plug 'roxma/vim-hug-neovim-rpc'
+endif
+let g:deoplete#enable_at_startup = 1
+call plug#end()
+
 colorscheme burnttoast256
 syntax enable
 filetype plugin indent on
+
 " Synastic
 " Make sure you have these installe npm i -g estraverse estraverse-fb eslint-plugin-react babel-eslint
 set statusline+=%#warningmsg#
@@ -10,9 +35,6 @@ set statusline+=%*
 
 "set mouse
 set mouse=a
-
-" Enable deoplete
-let g:deoplete#enable_at_startup = 1
 
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_loc_list_height = 5

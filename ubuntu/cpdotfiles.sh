@@ -1,3 +1,3 @@
 #!/bin/bash
-cp .eslintrc .vimrc .zshrc .ctags .tmux.conf ~
+cp .nvimrc .eslintrc .vimrc .zshrc .ctags .tmux.conf ~
 
