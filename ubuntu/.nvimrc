@@ -1,6 +1,7 @@
 " vim-plug
 call plug#begin()
 Plug 'scrooloose/nerdtree'
+Plug 'scrooloose/syntastic'
 Plug 'sheerun/vim-polyglot'
 Plug 'bronson/vim-trailing-whitespace'
 Plug 'mtscout6/syntastic-local-eslint.vim'
@@ -13,10 +14,12 @@ Plug 'craigemery/vim-autotag'
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-sensible'
 Plug 'flazz/vim-colorschemes'
+Plug 'vim-scripts/auto-pairs-gentle'
+Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
 if has('nvim')
-  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+  Plug 'shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 else
-  Plug 'Shougo/deoplete.nvim'
+  Plug 'shougo/deoplete.nvim'
   Plug 'roxma/nvim-yarp'
   Plug 'roxma/vim-hug-neovim-rpc'
 endif
@@ -71,7 +74,7 @@ set autoindent
 set autoread                                                 " reload files when changed on disk, i.e. via `git checkout`
 set backspace=2                                              " Fix broken backspace in some setups
 set backupcopy=yes                                           " see :help crontab
-set clipboard=unnamed                                        " yank and paste with the system clipboard
+set clipboard=unnamedplus                                        " yank and paste with the system clipboard
 set directory-=.                                             " don't store swapfiles in the current directory
 set encoding=utf-8
 set ignorecase                                               " case-insensitive search
@@ -104,20 +107,23 @@ noremap <C-l> <C-w>l
 nnoremap <leader>l mzgg=G'z<CR>
 nnoremap <leader>a :Ag<space>
 nnoremap <leader>r :redraw!<CR>
-nnoremap <leader>b :CtrlPBuffer<CR>
 nnoremap <leader>d :NERDTreeToggle<CR>
-nnoremap <leader>f :NERDTreeFind<CR>
-nnoremap <leader>R :so %<CR>
 nnoremap <leader>e :source $MYVIMRC<CR>
 nnoremap <leader>W :FixWhitespace<CR>
 nnoremap <leader>s :SyntasticCheck<CR>
 nnoremap <leader>S :SyntasticToggleMode<CR>
 nnoremap <leader>z :Errors<CR>
 
+" Go Settings
+autocmd FileType go nmap <leader>t  <Plug>(go-test)
+autocmd FileType go nmap <leader>b  <Plug>(go-build)
+autocmd FileType go nmap <leader>f  <Plug>(go-fmt)
+let g:go_fmt_command = "goimports"
+
 " Enable basic mouse behavior such as resizing buffers.
 "set mouse=a
 "if exists('$TMUX')  " Support resizing in tmux
-  "set ttymouse=xterm2
+"set ttymouse=xterm2
 "endif
 
 " Fix Cursor in TMUX
