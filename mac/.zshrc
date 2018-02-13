@@ -10,9 +10,23 @@ ZSH_THEME="robbyrussell"
 #Comment this out if MacOSx
 source $ZSH/oh-my-zsh.sh
 # source ~/.profile
+alias gtw='cd ~/GitHub/work'
+alias gtp='cd ~/GitHub/personal'
+alias gtg='cd ~/go/src/github.com/samrocksc'
+alias gentags='ctags -V -R --exclude=build --exclude=.git'
+alias vim='nvim'
 alias pgl='sudo -i -u postgres psql'
+alias dpgl='psql -h localhost -p 5432 -U postgres'
+alias uirestart='killall -KILL SystemUIServer && killall -KILL Finder && killall -KILL && killall -KILL NotificationCenter'
+export PATH=/Applications/ngrok:$PATH
 export PATH=~/.npm-global/bin:$PATH
+#export PATH=~/Library/Python/2.7/bin/
 export PATH=$PATH:/usr/local/go/bin
+export GOPATH=$HOME/go
+export PATH=$PATH:$GOPATH/bin
+export PATH="$HOME/.fastlane/bin:$PATH"
+
+export ANDROID_HOME=~/Library/Android/sdk/
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -60,17 +74,19 @@ plugins=(git)
 
 # User configuration
 
-# export PATH="/usr/bin:/bin:/usr/sbin:/sbin:$PATH"
-# export MANPATH="/usr/local/man:$MANPATH"
-
-# You may need to manually set your language environment
-# export LANG=en_US.UTF-8
+# Setting up nvim for all editors
+#sudo update-alternatives --install /usr/bin/vi vi /usr/bin/nvim 60
+#sudo update-alternatives --config vi
+#sudo update-alternatives --install /usr/bin/vim vim /usr/bin/nvim 60
+#sudo update-alternatives --config vim
+#sudo update-alternatives --install /usr/bin/editor editor /usr/bin/nvim 60
+#sudo update-alternatives --config editor
 
 # Preferred editor for local and remote sessions
 if [[ -n $SSH_CONNECTION ]]; then
-  export EDITOR='vim'
+  export EDITOR='nvim'
 else
-  export EDITOR='vim'
+  export EDITOR='nvim'
 fi
 
 # Compilation flags
@@ -87,3 +103,9 @@ fi
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/samrocksc/Downloads/google-cloud-sdk/path.zsh.inc' ]; then source '/Users/samrocksc/Downloads/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/samrocksc/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then source '/Users/samrocksc/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
