@@ -1,22 +1,29 @@
-
 " vim-plug
 call plug#begin()
+Plug 'wincent/command-t', {
+      \   'do': 'cd ruby/command-t/ext/command-t && ruby extconf.rb && make'
+      \ }
+Plug 'majutsushi/tagbar'
+Plug 'xuyuanp/nerdtree-git-plugin'
+Plug 'w0rp/ale'
+Plug 'vim-scripts/burnttoast256'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-sensible'
+Plug 'kien/ctrlp.vim'
 Plug 'scrooloose/nerdtree'
-Plug 'scrooloose/syntastic'
 Plug 'sheerun/vim-polyglot'
 Plug 'bronson/vim-trailing-whitespace'
 Plug 'mtscout6/syntastic-local-eslint.vim'
 Plug 'eslint/eslint'
-Plug 'ddollar/nerdcommenter'
-Plug 'tpope/vim-fugitive'
 Plug 'marcweber/vim-addon-mw-utils'
 Plug 'bling/vim-airline'
 Plug 'craigemery/vim-autotag'
 Plug 'airblade/vim-gitgutter'
-Plug 'tpope/vim-sensible'
-Plug 'flazz/vim-colorschemes'
-Plug 'vim-scripts/auto-pairs-gentle'
+Plug 'jiangmiao/auto-pairs'
 Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
+Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 if has('nvim')
   Plug 'shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 else
@@ -31,44 +38,14 @@ colorscheme burnttoast256
 syntax enable
 filetype plugin indent on
 
-" Synastic
-" Make sure you have these installe npm i -g estraverse estraverse-fb eslint-plugin-react babel-eslint
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
 "set mouse
 set mouse=a
-
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_loc_list_height = 5
-let g:syntastic_auto_loc_list = 0
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 1
-let g:syntastic_javascript_checkers = ['eslint']
-"If you want to disable a polyglot checker
-"let g:polyglot_disabled = ['css']
-
-let g:syntastic_error_symbol = 'xx'
-let g:syntastic_style_error_symbol = 'xy'
-let g:syntastic_warning_symbol = 'oo'
-let g:syntastic_style_warning_symbol = 'oy'
-
-highlight link SyntasticErrorSign SignColumn
-highlight link SyntasticWarningSign SignColumn
-highlight link SyntasticStyleErrorSign SignColumn
-highlight link SyntasticStyleWarningSign SignColumn
-
-highlight SyntasticWarningLine guibg=#303000 ctermbg=234
-highlight SyntasticWarning guibg=#303000 ctermbg=blue
-highlight SyntasticError guibg=#303000 ctermbg=05F
 
 set cursorline
 hi CursorLine term=bold cterm=bold guibg=Grey40
 
 let g:ag_working_path_mode="r"
 let g:jsx_ext_required = 0
-
 
 set smartindent
 set autoindent
@@ -95,6 +72,7 @@ set wildmode=longest,list,full
 set expandtab
 set shiftwidth=2
 set softtabstop=2
+set autowrite
 
 "Autocmd
 "autocmd BufWrite * normal mzgg=G'z
@@ -105,20 +83,20 @@ noremap <C-h> <C-w>h
 noremap <C-j> <C-w>j
 noremap <C-k> <C-w>k
 noremap <C-l> <C-w>l
-nnoremap <leader>l mzgg=G'z<CR>
 nnoremap <leader>a :Ag<space>
 nnoremap <leader>r :redraw!<CR>
 nnoremap <leader>d :NERDTreeToggle<CR>
 nnoremap <leader>e :source $MYVIMRC<CR>
 nnoremap <leader>W :FixWhitespace<CR>
-nnoremap <leader>s :SyntasticCheck<CR>
-nnoremap <leader>S :SyntasticToggleMode<CR>
 nnoremap <leader>z :Errors<CR>
+nnoremap <leader>p :Prettier<CR>
+nnoremap <leader>i :TagbarToggle<CR>
 
 " Go Settings
 autocmd FileType go nmap <leader>t  <Plug>(go-test)
 autocmd FileType go nmap <leader>b  <Plug>(go-build)
 autocmd FileType go nmap <leader>f  <Plug>(go-fmt)
+let g:go_fmt_command = "go-build"
 let g:go_fmt_command = "goimports"
 
 " Enable basic mouse behavior such as resizing buffers.
@@ -136,3 +114,5 @@ else
   let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 endif
 
+" Goodies
+" :%s/\.\.\//\.\.\/\.\.\//gi replace `../` with `../../`
