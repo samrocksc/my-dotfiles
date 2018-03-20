@@ -1,8 +1,13 @@
 " vim-plug
 call plug#begin()
+Plug 'xolox/vim-misc'
+Plug 'xolox/vim-notes'
 Plug 'wincent/command-t', {
       \   'do': 'cd ruby/command-t/ext/command-t && ruby extconf.rb && make'
       \ }
+Plug 'mileszs/ack.vim'
+Plug 'tpope/vim-rhubarb'
+Plug 'blindFS/vim-taskwarrior'
 Plug 'majutsushi/tagbar'
 Plug 'xuyuanp/nerdtree-git-plugin'
 Plug 'w0rp/ale'
@@ -37,6 +42,10 @@ call plug#end()
 colorscheme burnttoast256
 syntax enable
 filetype plugin indent on
+
+if executable('ag')
+  let g:ackprg = 'ag --vimgrep'
+endif
 
 "set mouse
 set mouse=a
@@ -83,7 +92,7 @@ noremap <C-h> <C-w>h
 noremap <C-j> <C-w>j
 noremap <C-k> <C-w>k
 noremap <C-l> <C-w>l
-nnoremap <leader>a :Ag<space>
+nnoremap <leader>a :Ack<space>
 nnoremap <leader>r :redraw!<CR>
 nnoremap <leader>d :NERDTreeToggle<CR>
 nnoremap <leader>e :source $MYVIMRC<CR>
@@ -91,6 +100,48 @@ nnoremap <leader>W :FixWhitespace<CR>
 nnoremap <leader>z :Errors<CR>
 nnoremap <leader>p :Prettier<CR>
 nnoremap <leader>i :TagbarToggle<CR>
+nnoremap <leader>l :e!<CR>
+
+" Taskwarrior Settings
+nnoremap <buffer> A       ... " add annotation
+nnoremap <buffer> x       ... " delete annotation.
+nnoremap <buffer> o       ... " open the annotation as a file.
+nnoremap <buffer> a       ... " create new task.
+nnoremap <buffer> d       ... " set the task in current line done.
+nnoremap <buffer> D       ... " delete task
+nnoremap <buffer> <Del>   ... " delete field/annotation/task
+nnoremap <buffer> <Space> ... " select/remove current task to selected list
+nnoremap <buffer> m       ... " modify current field.
+nnoremap <buffer> M       ... " modify current task.
+nnoremap <buffer> f       ... " change filter
+nnoremap <buffer> r       ... " change report type
+nnoremap <buffer> c       ... " execute a command for selected tasks/current task
+nnoremap <buffer> R       ... " refresh the report/clear selected list
+nnoremap <buffer> q       ... " quit buffer.
+nnoremap <buffer> X       ... " clear all completed task.
+nnoremap <buffer> p       ... " duplicate selected tasks
+nnoremap <buffer> u       ... " undo last change.
+nnoremap <buffer> +       ... " start task
+nnoremap <buffer> -       ... " stop task
+nnoremap <buffer> S       ... " sync with taskd server.
+nnoremap <buffer> s       ... " sort by this column primarily.(if already of the highest priority then switch the polarity)
+nnoremap <buffer> <       ... " sort by this column increasingly.(if already increasingly then increase its priority)
+nnoremap <buffer> >       ... " sort by this column decreasingly.(if already decreasingly then decrease its priority)
+nnoremap <buffer> H       ... " cycle column format left
+nnoremap <buffer> L       ... " cycle column format right
+nnoremap <buffer> J       ... " next historical entry
+nnoremap <buffer> K       ... " previous historical entry
+nnoremap <buffer> B       ... " create a bookmark for current combination
+nnoremap <buffer> <F1>    ... " view the documents
+nnoremap <buffer> <CR>    ... " show task info.
+nnoremap <buffer> <TAB>   ... " jump to the next column
+nnoremap <buffer> <S-TAB> ... " jump to the previous column
+nnoremap <buffer> <right> ... " jump to the next non-empty column
+nnoremap <buffer> <left>  ... " jump to the previous non-empty column
+vnoremap <buffer> d       ... " set done to all visual selected tasks
+vnoremap <buffer> D       ... " delete all visual selected tasks
+vnoremap <buffer> <CR>    ... " show information about visual selected tasks
+vnoremap <buffer> <Space> ... " add visual selected tasks to selected list
 
 " Go Settings
 autocmd FileType go nmap <leader>t  <Plug>(go-test)
