@@ -101,47 +101,8 @@ nnoremap <leader>z :Errors<CR>
 nnoremap <leader>p :Prettier<CR>
 nnoremap <leader>i :TagbarToggle<CR>
 nnoremap <leader>l :e!<CR>
-
-" Taskwarrior Settings
-nnoremap <buffer> A       ... " add annotation
-nnoremap <buffer> x       ... " delete annotation.
-nnoremap <buffer> o       ... " open the annotation as a file.
-nnoremap <buffer> a       ... " create new task.
-nnoremap <buffer> d       ... " set the task in current line done.
-nnoremap <buffer> D       ... " delete task
-nnoremap <buffer> <Del>   ... " delete field/annotation/task
-nnoremap <buffer> <Space> ... " select/remove current task to selected list
-nnoremap <buffer> m       ... " modify current field.
-nnoremap <buffer> M       ... " modify current task.
-nnoremap <buffer> f       ... " change filter
-nnoremap <buffer> r       ... " change report type
-nnoremap <buffer> c       ... " execute a command for selected tasks/current task
-nnoremap <buffer> R       ... " refresh the report/clear selected list
-nnoremap <buffer> q       ... " quit buffer.
-nnoremap <buffer> X       ... " clear all completed task.
-nnoremap <buffer> p       ... " duplicate selected tasks
-nnoremap <buffer> u       ... " undo last change.
-nnoremap <buffer> +       ... " start task
-nnoremap <buffer> -       ... " stop task
-nnoremap <buffer> S       ... " sync with taskd server.
-nnoremap <buffer> s       ... " sort by this column primarily.(if already of the highest priority then switch the polarity)
-nnoremap <buffer> <       ... " sort by this column increasingly.(if already increasingly then increase its priority)
-nnoremap <buffer> >       ... " sort by this column decreasingly.(if already decreasingly then decrease its priority)
-nnoremap <buffer> H       ... " cycle column format left
-nnoremap <buffer> L       ... " cycle column format right
-nnoremap <buffer> J       ... " next historical entry
-nnoremap <buffer> K       ... " previous historical entry
-nnoremap <buffer> B       ... " create a bookmark for current combination
-nnoremap <buffer> <F1>    ... " view the documents
-nnoremap <buffer> <CR>    ... " show task info.
-nnoremap <buffer> <TAB>   ... " jump to the next column
-nnoremap <buffer> <S-TAB> ... " jump to the previous column
-nnoremap <buffer> <right> ... " jump to the next non-empty column
-nnoremap <buffer> <left>  ... " jump to the previous non-empty column
-vnoremap <buffer> d       ... " set done to all visual selected tasks
-vnoremap <buffer> D       ... " delete all visual selected tasks
-vnoremap <buffer> <CR>    ... " show information about visual selected tasks
-vnoremap <buffer> <Space> ... " add visual selected tasks to selected list
+nnoremap <leader>g :Gstatus<CR>
+nnoremap <leader>n :tabnew<CR>
 
 " Go Settings
 autocmd FileType go nmap <leader>t  <Plug>(go-test)
