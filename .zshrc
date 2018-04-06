@@ -9,23 +9,38 @@ ZSH_THEME="robbyrussell"
 
 #Comment this out if MacOSx
 source $ZSH/oh-my-zsh.sh
+
+# General Aliases
+alias getmyip='dig +short myip.opendns.com @resolver1.opendns.com'
+alias uirestart='killall -KILL SystemUIServer && killall -KILL Finder && killall -KILL && killall -KILL NotificationCenter'
+
 # source ~/.profile
 alias blowcolon='docker run --rm -v /var/run/docker.sock:/var/run/docker.sock zzrot/docker-clean all'
+
+# Folder Aliases
 alias gtw='cd ~/GitHub/work'
 alias gtp='cd ~/GitHub/personal'
 alias gtg='cd ~/go/src/github.com/samrocksc'
+
+# Vim aliases
 alias gentags='ctags -V -R --exclude=build --exclude=.git'
 alias vim='nvim'
+
+# Postgres Aliases
 alias pgl='sudo -i -u postgres psql'
 alias dpgl='psql -h localhost -p 5432 -U postgres'
-alias uirestart='killall -KILL SystemUIServer && killall -KILL Finder && killall -KILL && killall -KILL NotificationCenter'
+
+# Git Aliases
+alias gl='git log --graph --decorate'
+
 export PATH=/Applications/ngrok:$PATH
 export PATH=~/.npm-global/bin:$PATH
-#export PATH=~/Library/Python/2.7/bin/
 export PATH=$PATH:/usr/local/go/bin
 export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin
 export PATH="$HOME/.fastlane/bin:$PATH"
+#export PATH=~/Library/Python/2.7/bin/
+export PATH=/Users/sam/Library/Python/3.6/bin:$PATH
 
 export ANDROID_HOME=~/Library/Android/sdk/
 
