@@ -1,10 +1,8 @@
 " vim-plug
 call plug#begin()
+Plug 'thenewvu/vim-colors-sketching'
 Plug 'xolox/vim-misc'
 Plug 'xolox/vim-notes'
-Plug 'wincent/command-t', {
-      \   'do': 'cd ruby/command-t/ext/command-t && ruby extconf.rb && make'
-      \ }
 Plug 'mileszs/ack.vim'
 Plug 'tpope/vim-rhubarb'
 Plug 'blindFS/vim-taskwarrior'
@@ -56,6 +54,9 @@ hi CursorLine term=bold cterm=bold guibg=Grey40
 let g:ag_working_path_mode="r"
 let g:jsx_ext_required = 0
 
+" Airline
+let g:airline#extensions#tabline#enabled = 1
+
 set smartindent
 set autoindent
 set autoread                                                 " reload files when changed on disk, i.e. via `git checkout`
@@ -75,7 +76,7 @@ set scrolloff=3                                              " show context abov
 set showcmd
 set smartcase                                                " case-sensitive search if any caps
 set tabstop=2                                                " actual tabs occupy 8 characters
-set wildignore=log/**,node_modules/**,target/**,tmp/**,*.rbc
+set wildignore=log/**,node_modules/**,target/**,tmp/**,tags*,*.rbc
 set wildmenu                                                 " show a navigable menu for tab completion
 set wildmode=longest,list,full
 set expandtab
@@ -99,10 +100,34 @@ nnoremap <leader>e :source $MYVIMRC<CR>
 nnoremap <leader>W :FixWhitespace<CR>
 nnoremap <leader>z :Errors<CR>
 nnoremap <leader>p :Prettier<CR>
-nnoremap <leader>i :TagbarToggle<CR>
 nnoremap <leader>l :e!<CR>
 nnoremap <leader>g :Gstatus<CR>
+nnoremap <leader>h :Gdiff<CR>
 nnoremap <leader>n :tabnew<CR>
+nnoremap <leader>f za
+nnoremap <leader>F $v%zf
+nnoremap <leader>b :CtrlPBuffer<CR>
+nnoremap <leader>t :TagbarToggle<CR>
+
+"fkeys
+"TODO: Create 4 fkeys for working with Fugitive
+:nnoremap <F1> :bp<CR>
+:nnoremap <F2> :bn<CR>
+:nnoremap <F3> :bd<CR>
+:nnoremap <F8> :w<CR>
+
+" Prettier Settings
+let g:prettier#config#trailing_comma = 'es5'
+let g:prettier#config#print_width = 120
+let g:prettier#config#single_quote = 'true'
+let g:prettier#config#bracket_spacing = 'true'
+
+" RECURSIVE AUTO CODE FOLDING
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" set foldmethod=indent   " code folding
+" set foldlevel=1
+" autocmd BufWinLeave *.* mkview
+" autocmd BufWinEnter *.* silent loadview
 
 " Go Settings
 autocmd FileType go nmap <leader>t  <Plug>(go-test)
@@ -112,10 +137,26 @@ let g:go_fmt_command = "go-build"
 let g:go_fmt_command = "goimports"
 
 " Enable basic mouse behavior such as resizing buffers.
-"set mouse=a
-"if exists('$TMUX')  " Support resizing in tmux
-"set ttymouse=xterm2
-"endif
+set mouse=a
+
+" The Silver Searcher CtrlP
+if executable('ag')
+  " Use ag over grep
+  set grepprg=ag\ --nogroup\ --nocolor
+
+  " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
+  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+
+  " " ag is fast enough that CtrlP doesn't need to cache
+  let g:ctrlp_use_caching = 0
+endif
+
+" ripgrep for ctrlp
+" if executable('rg')
+"   set grepprg=rg\ --color=never
+"   let g:ctrlp_user_command = 'rg %s --files --color=never --glob ""'
+"   let g:ctrlp_use_caching = 0
+" endif
 
 " Fix Cursor in TMUX
 if exists('$TMUX')
