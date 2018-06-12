@@ -341,8 +341,8 @@ you should place your code here."
                            "--write"
                            "--single-quote"
                            "--trailing-comma" "es5"
+                           "--print-width" "120"
                            "--bracket-spacing" "true"
-                           "--print-width 120"
                            ))
   )
 
