@@ -5,7 +5,7 @@ Plug 'xolox/vim-misc'
 Plug 'xolox/vim-notes'
 Plug 'mileszs/ack.vim'
 Plug 'tpope/vim-rhubarb'
-Plug 'blindFS/vim-taskwarrior'
+Plug 'styled-components/vim-styled-components'
 Plug 'majutsushi/tagbar'
 Plug 'xuyuanp/nerdtree-git-plugin'
 Plug 'w0rp/ale'
@@ -45,8 +45,14 @@ if executable('ag')
   let g:ackprg = 'ag --vimgrep'
 endif
 
-"set mouse
-set mouse=a
+" ale setup
+let g:ale_statusline_format = ['⨉ %d', '⚠ %d', '⬥ ok']
+let g:ale_javascript_eslint_use_global = 0
+" let g:ale_javascript_eslint_executable = 'eslint'
+let g:ale_lint_on_enter = 0 " Less distracting when opening a new file
+let b:ale_fixers = {'javascript': ['prettier', 'eslint']}
+let g:ale_javascript_prettier_options = '--single-quote --trailing-comma es5 --print-width 120'
+let g:ale_fix_on_save = 1
 
 set cursorline
 hi CursorLine term=bold cterm=bold guibg=Grey40
@@ -56,7 +62,6 @@ let g:jsx_ext_required = 0
 
 " Airline
 let g:airline#extensions#tabline#enabled = 1
-
 set smartindent
 set autoindent
 set autoread                                                 " reload files when changed on disk, i.e. via `git checkout`
@@ -83,6 +88,7 @@ set expandtab
 set shiftwidth=2
 set softtabstop=2
 set autowrite
+set hidden                                                   " don't auto save buffers
 
 "Autocmd
 "autocmd BufWrite * normal mzgg=G'z
@@ -99,21 +105,23 @@ nnoremap <leader>d :NERDTreeToggle<CR>
 nnoremap <leader>e :source $MYVIMRC<CR>
 nnoremap <leader>W :FixWhitespace<CR>
 nnoremap <leader>z :Errors<CR>
-nnoremap <leader>p :Prettier<CR>
+autocmd FileType js nnoremap <leader>p :Prettier<CR>
 nnoremap <leader>l :e!<CR>
 nnoremap <leader>g :Gstatus<CR>
 nnoremap <leader>h :Gdiff<CR>
 nnoremap <leader>n :tabnew<CR>
 nnoremap <leader>f za
+nnoremap <leader>k :set foldmethod=indent<CR>
 nnoremap <leader>F $v%zf
 nnoremap <leader>b :CtrlPBuffer<CR>
 nnoremap <leader>t :TagbarToggle<CR>
 
 "fkeys
 "TODO: Create 4 fkeys for working with Fugitive
-:nnoremap <F1> :bp<CR>
-:nnoremap <F2> :bn<CR>
-:nnoremap <F3> :bd<CR>
+:nnoremap <F3> :bp<CR>
+:nnoremap <F4> :bn<CR>
+:nnoremap <F5> gT<CR>
+:nnoremap <F6> gt<CR>
 :nnoremap <F8> :w<CR>
 
 " Prettier Settings
@@ -121,6 +129,7 @@ let g:prettier#config#trailing_comma = 'es5'
 let g:prettier#config#print_width = 120
 let g:prettier#config#single_quote = 'true'
 let g:prettier#config#bracket_spacing = 'true'
+let g:prettier#config#config_precedence = 'prefer-file'
 
 " RECURSIVE AUTO CODE FOLDING
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -130,9 +139,10 @@ let g:prettier#config#bracket_spacing = 'true'
 " autocmd BufWinEnter *.* silent loadview
 
 " Go Settings
-autocmd FileType go nmap <leader>t  <Plug>(go-test)
-autocmd FileType go nmap <leader>b  <Plug>(go-build)
-autocmd FileType go nmap <leader>f  <Plug>(go-fmt)
+autocmd FileType go nmap <leader>8  <Plug>(go-test)
+autocmd FileType go nmap <leader>9  <Plug>(go-build)
+autocmd FileType go nmap <leader>0  <Plug>(go-fmt)
+autocmd FileType go nnoremap <leader>p :GoFmt<CR>
 let g:go_fmt_command = "go-build"
 let g:go_fmt_command = "goimports"
 

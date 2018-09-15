@@ -50,8 +50,8 @@ alias gtm='cd ~/GitHub/modules'
 alias gtg='cd ~/go/src/github.com/samrocksc'
 alias gtiosdb='/Users/sam/Library/Developer/CoreSimulator/Devices'
 
-# Vim aliases
-alias gentags='ctags -R api authenticator aws-lambda frontend HeliaConnect lib shared && sed -i ‘’ -E ‘/^(if|switch|function|module\.exports|it|describe).+language:js$/d’ tags'
+# Generate tags for vim
+alias gentags='ctags -R api authenticator aws-lambda frontend backend lib shared && sed -i ‘’ -E ‘/^(if|switch|function|module\.exports|it|describe).+language:js$/d’ tags'
 alias vim='nvim'
 
 # Postgres Aliases
