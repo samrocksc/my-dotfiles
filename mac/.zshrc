@@ -9,103 +9,119 @@ ZSH_THEME="robbyrussell"
 
 #Comment this out if MacOSx
 source $ZSH/oh-my-zsh.sh
+
+# System Files
+alias squidconf="sudo vim /usr/local/squid/etc/squid.conf" # Edit Squid ACL
+
+#taskwarrior
+alias cattask='cat ~/.zshrc | grep task'
+alias ta='task add'
+alias tstart='task start'
+alias tstop='task stop'
+alias tcomp='task done'
+alias tm='task modify'
+alias td='task delete'
+alias tla='task list'
+alias tlc='task completed'
+alias tbd='task burndown.daily'
+alias tbw='task burndown.weekly'
+alias tbm='task burndown.monthly'
+
+# General Aliases
+alias getmyip='dig +short myip.opendns.com @resolver1.opendns.com'
+alias uirestart='killall -KILL SystemUIServer && killall -KILL Finder && killall -KILL && killall -KILL NotificationCenter'
+alias swaggereditor='docker run --name openapi-gui -p 3137:3000 -d mermade/openapi-gui'
+
+# React Native
+alias rni='react-native run-ios'
+alias rna='react-native run-android'
+alias rnrimraf='rm -rf node_modules && npm i && npm start'
+alias devices='instruments -s devices'
+alias adbmenu='adb shell input keyevent 82'
+
+# GoLang
+alias godev='realize start'
+alias gpm='dep ensure'
+alias gpu='dep ensure -update'
+
+# Docker
+alias catdocker='cat ~/.zshrc | grep docker'
+alias dc='docker-compose'
+alias dcr='docker-compose restart'
+alias dcrsb='docker-compose restart frontend-storybook'
+alias dclogs='docker-compose logs -f'
+alias dcrimraf='docker-compose stop && docker-compose up'
+alias dcrapi='docker-compose restart api'
+alias dcrfe='docker-compose restart frontend'
+alias dcps='docker-compose ps'
+alias dps='docker ps'
+alias dex='docker exec -t'
+alias dimages='docker images'
+
 # source ~/.profile
+alias blowcolon='docker run --rm -v /var/run/docker.sock:/var/run/docker.sock zzrot/docker-clean all'
+alias colonblow='sudo rm -rf /private/var/log/*'
+
+# Folder Aliases
+alias catcd='cat ~/.zshrc | grep cd'
+alias gts='cd ~/sync/Documents'
 alias gtw='cd ~/GitHub/work'
 alias gtp='cd ~/GitHub/personal'
+alias gtm='cd ~/GitHub/modules'
 alias gtg='cd ~/go/src/github.com/samrocksc'
-alias gentags='ctags -V -R --exclude=build --exclude=.git'
+alias gtiosdb='/Users/sam/Library/Developer/CoreSimulator/Devices'
+alias guntrack='git rm --cached'
+
+# Git Aliases
+alias catgit='cat ~/.zshrc | grep git'
+alias ga='git add -p'
+alias gaa='git add'
+alias gu='git add -u'
+alias gd='git diff'
+alias gdc='git diff --cached'
+
+# Vim aliases
+alias gentags='ctags -R api authenticator aws-lambda frontend HeliaConnect lib shared --exclude=*node_modules --exclude=.git && sed -i ‘’ -E ‘/^(if|switch|function|module\.exports|it|describe).+language:js$/d’ tags'
 alias vim='nvim'
+
+# Postgres Aliases
 alias pgl='sudo -i -u postgres psql'
 alias dpgl='psql -h localhost -p 5432 -U postgres'
-alias uirestart='killall -KILL SystemUIServer && killall -KILL Finder && killall -KILL && killall -KILL NotificationCenter'
+alias startandroid='cd /Users/sam/Library/Android/sdk/emulator && ./emulator -avd pixel23 -writable-system'
+
+# Git Aliases
+alias skittles='git log --graph --decorate'
+alias gco='git checkout'
+alias grs='git reset --soft HEAD^'
+
+
+alias glog="git log --pretty=format:\"%C(yellow)\%h\%Cred\%d\\ \%Creset\%s\%Cblue\\ [\%cn]\" --decorate --numstat"
+
 export PATH=/Applications/ngrok:$PATH
+export PATH=/Users/sam/Library/Android/sdk/platform-tools:$PATH
 export PATH=~/.npm-global/bin:$PATH
-#export PATH=~/Library/Python/2.7/bin/
 export PATH=$PATH:/usr/local/go/bin
 export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin
 export PATH="$HOME/.fastlane/bin:$PATH"
+#export PATH=~/Library/Python/2.7/bin/
+export PATH=/Users/sam/Library/Python/3.6/bin:$PATH
 
-export ANDROID_HOME=~/Library/Android/sdk/
+export ANDROID_HOME=$HOME/Library/Android/sdk
+export PATH=$ANDROID_HOME/emulator:$PATH
+# export PATH=$ANDROID_HOME/tools:$PATH
+# export PATH=$ANDROID_HOME/platform-tools
+export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_172.jdk/Contents/Home
 
-# Uncomment the following line to use case-sensitive completion.
-# CASE_SENSITIVE="true"
-
-# Uncomment the following line to use hyphen-insensitive completion. Case
-# sensitive completion must be off. _ and - will be interchangeable.
-# HYPHEN_INSENSITIVE="true"
-
-# Uncomment the following line to disable bi-weekly auto-update checks.
-# DISABLE_AUTO_UPDATE="true"
-
-# Uncomment the following line to change how often to auto-update (in days).
-# export UPDATE_ZSH_DAYS=13
-
-# Uncomment the following line to disable colors in ls.
-# DISABLE_LS_COLORS="true"
-
-# Uncomment the following line to disable auto-setting terminal title.
 DISABLE_AUTO_TITLE="true"
-
-# Uncomment the following line to enable command auto-correction.
-# ENABLE_CORRECTION="true"
-
-# Uncomment the following line to display red dots whilst waiting for completion.
-# COMPLETION_WAITING_DOTS="true"
-
-# Uncomment the following line if you want to disable marking untracked files
-# under VCS as dirty. This makes repository status check for large repositories
-# much, much faster.
-# DISABLE_UNTRACKED_FILES_DIRTY="true"
-
-# Uncomment the following line if you want to change the command execution time
-# stamp shown in the history command output.
-# The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
-# HIST_STAMPS="mm/dd/yyyy"
-
-# Would you like to use another custom folder than $ZSH/custom?
-# ZSH_CUSTOM=/path/to/new-custom-folder
-
-# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
-# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-# Add wisely, as too many plugins slow down shell startup.
 plugins=(git)
 
-# User configuration
-
-# Setting up nvim for all editors
-#sudo update-alternatives --install /usr/bin/vi vi /usr/bin/nvim 60
-#sudo update-alternatives --config vi
-#sudo update-alternatives --install /usr/bin/vim vim /usr/bin/nvim 60
-#sudo update-alternatives --config vim
-#sudo update-alternatives --install /usr/bin/editor editor /usr/bin/nvim 60
-#sudo update-alternatives --config editor
-
-# Preferred editor for local and remote sessions
 if [[ -n $SSH_CONNECTION ]]; then
   export EDITOR='nvim'
 else
   export EDITOR='nvim'
 fi
 
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
+# Stupid fucking notes about OSX
+# If you want to show dotfiles, CMD+SHIFT+.
 
-# ssh
-# export SSH_KEY_PATH="~/.ssh/dsa_id"
-
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-#
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
-
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/samrocksc/Downloads/google-cloud-sdk/path.zsh.inc' ]; then source '/Users/samrocksc/Downloads/google-cloud-sdk/path.zsh.inc'; fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f '/Users/samrocksc/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then source '/Users/samrocksc/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
