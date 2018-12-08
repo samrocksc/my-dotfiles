@@ -1,5 +1,7 @@
 " vim-plug
 call plug#begin()
+Plug 'quramy/vim-js-pretty-template'
+Plug 'bendavis78/vim-polymer'
 Plug 'thenewvu/vim-colors-sketching'
 Plug 'xolox/vim-misc'
 Plug 'xolox/vim-notes'
@@ -16,14 +18,29 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-sensible'
 Plug 'kien/ctrlp.vim'
 Plug 'scrooloose/nerdtree'
-Plug 'sheerun/vim-polyglot''do': ':GoInstallBinaries' }
+Plug 'sheerun/vim-polyglot'
+Plug 'bronson/vim-trailing-whitespace'
+Plug 'mtscout6/syntastic-local-eslint.vim'
+Plug 'eslint/eslint'
+Plug 'marcweber/vim-addon-mw-utils'
+Plug 'bling/vim-airline'
+" Plug 'xolox/vim-easytags'
+Plug 'airblade/vim-gitgutter'
+Plug 'jiangmiao/auto-pairs'
+Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
 Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 if has('nvim')
   Plug 'shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+  Plug 'Shougo/neosnippet.vim'
+  Plug 'roxma/nvim-yarp'
+  Plug 'roxma/vim-hug-neovim-rpc'
+  Plug 'Shougo/neosnippet-snippets'
 else
   Plug 'shougo/deoplete.nvim'
   Plug 'roxma/nvim-yarp'
   Plug 'roxma/vim-hug-neovim-rpc'
+  Plug 'Shougo/neosnippet.vim'
+  Plug 'Shougo/neosnippet-snippets'
 endif
 let g:deoplete#enable_at_startup = 1
 call plug#end()
@@ -36,13 +53,18 @@ if executable('ag')
   let g:ackprg = 'ag --vimgrep'
 endif
 
+"""""""""""""
+""""Notes""""
+"""""""""""""
+:let g:notes_directories = ['~/Documents/Notes']
+
 " ale setup
 let g:ale_statusline_format = ['⨉ %d', '⚠ %d', '⬥ ok']
 let g:ale_javascript_eslint_use_global = 0
 " let g:ale_javascript_eslint_executable = 'eslint'
 let g:ale_lint_on_enter = 0 " Less distracting when opening a new file
 let b:ale_fixers = {'javascript': ['prettier', 'eslint']}
-let g:ale_javascript_prettier_options = '--single-quote --trailing-comma es5 --print-width 120'
+let g:ale_javascript_prettier_options = '--single-quote --trailing-comma es5 --print-width 100'
 let g:ale_fix_on_save = 1
 
 set cursorline
@@ -58,7 +80,7 @@ set autoindent
 set autoread                                                 " reload files when changed on disk, i.e. via `git checkout`
 set backspace=2                                              " Fix broken backspace in some setups
 set backupcopy=yes                                           " see :help crontab
-set clipboard=unnamedplus                                        " yank and paste with the system clipboard
+set clipboard=unnamedplus                                    " yank and paste with the system clipboard
 set directory-=.                                             " don't store swapfiles in the current directory
 set encoding=utf-8
 set ignorecase                                               " case-insensitive search
@@ -105,7 +127,9 @@ nnoremap <leader>f za
 nnoremap <leader>k :set foldmethod=indent<CR>
 nnoremap <leader>F $v%zf
 nnoremap <leader>b :CtrlPBuffer<CR>
-nnoremap <leader>t :TagbarToggle<CR>
+nnoremap <leader>t :TagbarT:oggle<CR>
+nnoremap <leader>s :w<CR>
+nnoremap <leader>q :JsPreTmpl html<CR>
 
 "fkeys
 "TODO: Create 4 fkeys for working with Fugitive
@@ -137,10 +161,14 @@ autocmd FileType go nnoremap <leader>p :GoFmt<CR>
 let g:go_fmt_command = "go-build"
 let g:go_fmt_command = "goimports"
 
+" HTML Settings
+  " autocmd FileType html nmap <leader>p ggvG$==<CR>'i
+
 " Enable basic mouse behavior such as resizing buffers.
 set mouse=a
-
-" The Silver Searcher CtrlP
+"""""""""""""""""""""""""""
+"""The Silver Searcher"""""
+"""""""""""""""""""""""""""
 if executable('ag')
   " Use ag over grep
   set grepprg=ag\ --nogroup\ --nocolor
@@ -159,7 +187,9 @@ endif
 "   let g:ctrlp_use_caching = 0
 " endif
 
-" Fix Cursor in TMUX
+""""""""""
+"""TMUX"""
+""""""""""
 if exists('$TMUX')
   let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
   let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
@@ -170,3 +200,26 @@ endif
 
 " Goodies
 " :%s/\.\.\//\.\.\/\.\.\//gi replace `../` with `../../`
+"
+
+"""""""""""""""
+"" SNIPPETS."""
+"""""""""""""""
+" Note: It must be "imap" and "smap".  It uses <Plug> mappings.
+imap <C-k>     <Plug>(neosnippet_expand_or_jump)
+smap <C-k>     <Plug>(neosnippet_expand_or_jump)
+xmap <C-k>     <Plug>(neosnippet_expand_target)
+
+" SuperTab like snippets behavior.
+" Note: It must be "imap" and "smap".  It uses <Plug> mappings.
+"imap <expr><TAB>
+" \ pumvisible() ? "\<C-n>" :
+" \ neosnippet#expandable_or_jumpable() ?
+" \    "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+\ "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+
+" For conceal markers.
+if has('conceal')
+  set conceallevel=2 concealcursor=niv
+endif
