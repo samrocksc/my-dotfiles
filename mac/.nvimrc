@@ -1,8 +1,18 @@
 " vim-plug
 call plug#begin()
+Plug 'othree/jsdoc-syntax.vim'
+Plug 'racer-rust/vim-racer'
+Plug 'nanotech/jellybeans.vim'
+Plug 'jparise/vim-graphql'
+Plug 'davejlong/cf-utils.vim'
+Plug 'davejlong/cf-utils.vim'
+Plug 'ernstvanderlinden/vim-coldfusion'
+Plug 'junegunn/seoul256.vim'
+Plug 'heavenshell/vim-jsdoc'
 Plug 'thenewvu/vim-colors-sketching'
 Plug 'xolox/vim-misc'
 Plug 'xolox/vim-notes'
+Plug 'samrocksc/vim-easytags'
 Plug 'mileszs/ack.vim'
 Plug 'tpope/vim-rhubarb'
 Plug 'styled-components/vim-styled-components'
@@ -18,17 +28,15 @@ Plug 'kien/ctrlp.vim'
 Plug 'scrooloose/nerdtree'
 Plug 'sheerun/vim-polyglot'
 Plug 'bronson/vim-trailing-whitespace'
-Plug 'mtscout6/syntastic-local-eslint.vim'
 Plug 'eslint/eslint'
 Plug 'marcweber/vim-addon-mw-utils'
 Plug 'bling/vim-airline'
-" Plug 'xolox/vim-easytags'
 Plug 'airblade/vim-gitgutter'
 Plug 'jiangmiao/auto-pairs'
 Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
 Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 if has('nvim')
-  Plug 'shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+  Plug 'shougo/deoplete.nvim', { 'do': ':updateremoteplugins' }
   Plug 'Shougo/neosnippet.vim'
   Plug 'roxma/nvim-yarp'
   Plug 'roxma/vim-hug-neovim-rpc'
@@ -43,12 +51,23 @@ endif
 let g:deoplete#enable_at_startup = 1
 call plug#end()
 
-colorscheme burnttoast256
+" colorscheme seoul256
+colorscheme jellybeans
 syntax enable
 filetype plugin indent on
 
 if executable('ag')
   let g:ackprg = 'ag --vimgrep'
+endif
+
+""""""""""""""""""
+""""""theme""""""
+""""""""""""""""""
+" let g:jellybeans_overrides = {
+" \    'background': { 'ctermbg': 'none', '256ctermbg': 'none' },
+" \}
+if has('termguicolors') && &termguicolors
+    let g:jellybeans_overrides['background']['guibg'] = 'none'
 endif
 
 """""""""""""
@@ -59,11 +78,13 @@ endif
 " ale setup
 let g:ale_statusline_format = ['⨉ %d', '⚠ %d', '⬥ ok']
 let g:ale_javascript_eslint_use_global = 0
-" let g:ale_javascript_eslint_executable = 'eslint'
+let g:ale_javascript_eslint_executable = 'eslint'
 let g:ale_lint_on_enter = 0 " Less distracting when opening a new file
 let b:ale_fixers = {'javascript': ['prettier', 'eslint']}
 let g:ale_javascript_prettier_options = '--single-quote --trailing-comma es5 --print-width 100'
 let g:ale_fix_on_save = 1
+let g:ale_completion_enabled = 1
+let g:ale_set_balloons = 1
 
 set cursorline
 hi CursorLine term=bold cterm=bold guibg=Grey40
@@ -122,10 +143,11 @@ nnoremap <leader>g :Gstatus<CR>
 nnoremap <leader>h :Gdiff<CR>
 nnoremap <leader>n :tabnew<CR>
 nnoremap <leader>f za
-nnoremap <leader>k :set foldmethod=indent<CR>
+" nnoremap <leader>k :set foldmethod=indent<CR>
 nnoremap <leader>F $v%zf
 nnoremap <leader>b :CtrlPBuffer<CR>
 nnoremap <leader>t :TagbarToggle<CR>
+nnoremap <leader>q :ALEFindReferences<CR>
 
 "fkeys
 "TODO: Create 4 fkeys for working with Fugitive
@@ -219,3 +241,23 @@ smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
 if has('conceal')
   set conceallevel=2 concealcursor=niv
 endif
+
+""""""""""
+"easy-tag"
+""""""""""
+" let g:easytags_suppress_ctags_warning = 1
+let g:easytags_async = 1
+
+""""""""""
+""JSDOC""
+""""""""""
+let g:jsdoc_enable_es6 = 1
+let g:jsdoc_allow_input_prompt = 1
+let g:jsdoc_input_description	= 1
+
+""""""""""""""""
+""vim-markdown""
+""""""""""""""""
+
+set conceallevel=0
+
