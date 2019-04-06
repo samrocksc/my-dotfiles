@@ -12,6 +12,21 @@ source $ZSH/oh-my-zsh.sh
 
 # System Files
 alias squidconf="sudo vim /usr/local/squid/etc/squid.conf" # Edit Squid ACL
+alias crap="node --inspect-brk=0.0.0.0:9229"
+
+# SAM Aliases
+samnoev() {
+  sam local invoke $1 --env-vars env.json --no-event
+}
+samev() {
+  sam local invoke $1 --env-vars env.json -e src/"$1"/event.json
+}
+
+mkbackup() {
+    #do things with parameters like $1 such as
+    mv "$1" "$1.bak"
+    cp "$2" "$1"
+}
 
 #taskwarrior
 alias cattask='cat ~/.zshrc | grep task'
@@ -43,6 +58,9 @@ alias adbmenu='adb shell input keyevent 82'
 alias godev='realize start'
 alias gpm='dep ensure'
 alias gpu='dep ensure -update'
+
+# Node
+alias nmrimraf='rm -rf node_modules && npm i'
 
 # Docker
 alias catdocker='cat ~/.zshrc | grep docker'
@@ -81,8 +99,10 @@ alias gd='git diff'
 alias gdc='git diff --cached'
 
 # Vim aliases
-alias gentags='ctags -R api authenticator aws-lambda frontend HeliaConnect lib shared --exclude=*node_modules --exclude=.git && sed -i ‘’ -E ‘/^(if|switch|function|module\.exports|it|describe).+language:js$/d’ tags'
+alias gentags='ctags -R fixtures src test api authenticator aws-lambda frontend lib shared --exclude=.git && sed -i ‘’ -E ‘/^(if|switch|function|module\.exports|it|describe).+language:js$/d’ tags'
+alias gentagsNode='ctags -R api authenticator aws-lambda frontend lib shared --exclude=*node_modules --exclude=.git && sed -i ‘’ -E ‘/^(if|switch|function|module\.exports|it|describe).+language:js$/d’ tags'
 alias vim='nvim'
+alias gtags='ctags'
 
 # Postgres Aliases
 alias pgl='sudo -i -u postgres psql'
@@ -106,7 +126,7 @@ export PATH=$PATH:$GOPATH/bin
 export PATH="$HOME/.fastlane/bin:$PATH"
 #export PATH=~/Library/Python/2.7/bin/
 export PATH=/Users/sam/Library/Python/3.6/bin:$PATH
-
+export PATH="$HOME/.cargo/bin:$PATH"
 export ANDROID_HOME=$HOME/Library/Android/sdk
 export PATH=$ANDROID_HOME/emulator:$PATH
 # export PATH=$ANDROID_HOME/tools:$PATH
@@ -124,4 +144,19 @@ fi
 
 # Stupid fucking notes about OSX
 # If you want to show dotfiles, CMD+SHIFT+.
+
+# AWS Dynamo
+alias dynoList='aws dynamodb list-tables --endpoint-url http://localhost:8000'
+
+
+# tabtab source for serverless package
+# uninstall by removing these lines or running `tabtab uninstall serverless`
+[[ -f /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.zsh ]] && . /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.zsh
+# tabtab source for sls package
+# uninstall by removing these lines or running `tabtab uninstall sls`
+[[ -f /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh ]] && . /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh
+
+# tabtab source for slss package
+# uninstall by removing these lines or running `tabtab uninstall slss`
+[[ -f /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/slss.zsh ]] && . /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/slss.zsh
 
