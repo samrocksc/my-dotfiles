@@ -148,6 +148,9 @@ fi
 # AWS Dynamo
 alias dynoList='aws dynamodb list-tables --endpoint-url http://localhost:8000'
 
+# Expose Ports with ngrok
+alias ngmysql='ngrok tcp 3306'
+
 
 # tabtab source for serverless package
 # uninstall by removing these lines or running `tabtab uninstall serverless`
