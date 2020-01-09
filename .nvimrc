@@ -1,5 +1,12 @@
 " vim-plug
 call plug#begin()
+Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
+Plug 'leafgarland/typescript-vim'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+" Plug 'quramy/tsuquyomi'
+Plug 'mhartington/nvim-typescript', {'do': './install.sh'}
+Plug 'Shougo/denite.nvim'
+Plug 'jonsmithers/vim-html-template-literals'
 Plug 'othree/jsdoc-syntax.vim'
 Plug 'racer-rust/vim-racer'
 Plug 'nanotech/jellybeans.vim'
@@ -12,11 +19,10 @@ Plug 'heavenshell/vim-jsdoc'
 Plug 'thenewvu/vim-colors-sketching'
 Plug 'xolox/vim-misc'
 Plug 'xolox/vim-notes'
-Plug 'samrocksc/vim-easytags'
+" Plug 'samrocksc/vim-easytags'
 Plug 'mileszs/ack.vim'
 Plug 'tpope/vim-rhubarb'
-Plug 'styled-components/vim-styled-components'
-Plug 'majutsushi/tagbar'
+" Plug 'majutsushi/tagbar'
 Plug 'xuyuanp/nerdtree-git-plugin'
 Plug 'w0rp/ale'
 Plug 'vim-scripts/burnttoast256'
@@ -34,15 +40,16 @@ Plug 'bling/vim-airline'
 Plug 'airblade/vim-gitgutter'
 Plug 'jiangmiao/auto-pairs'
 Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
+Plug 'Shougo/vimproc.vim', {'do' : 'make'}
 Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 if has('nvim')
-  Plug 'shougo/deoplete.nvim', { 'do': ':updateremoteplugins' }
+  " Plug 'shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
   Plug 'Shougo/neosnippet.vim'
   Plug 'roxma/nvim-yarp'
   Plug 'roxma/vim-hug-neovim-rpc'
   Plug 'Shougo/neosnippet-snippets'
 else
-  Plug 'shougo/deoplete.nvim'
+  " Plug 'shougo/deoplete.nvim'
   Plug 'roxma/nvim-yarp'
   Plug 'roxma/vim-hug-neovim-rpc'
   Plug 'Shougo/neosnippet.vim'
@@ -55,10 +62,25 @@ call plug#end()
 colorscheme jellybeans
 syntax enable
 filetype plugin indent on
+filetype plugin on
 
 if executable('ag')
   let g:ackprg = 'ag --vimgrep'
 endif
+
+
+""""""""""""""""""
+""""Mappings""""""
+""""""""""""""""""
+source ~/.vim/mappings.vim
+source ~/.vim/jsdoc.vim
+
+
+
+""""""""""""""""""
+""""Typescript""""
+""""""""""""""""""
+let g:nvim_typescript#default_mappings = 1
 
 """"""""""""""""""
 """"""theme""""""
@@ -76,6 +98,9 @@ endif
 :let g:notes_directories = ['~/Documents/Notes']
 
 " ale setup
+let g:ale_linters = {'javascript': ['eslint'],'typescript': ['tsserver', 'tslint'],'vue': ['eslint']}
+let g:ale_linter_aliases = {'js': 'ts'}
+let g:ale_typescript_tslint_executable = 'eslint'
 let g:ale_statusline_format = ['⨉ %d', '⚠ %d', '⬥ ok']
 let g:ale_javascript_eslint_use_global = 0
 let g:ale_javascript_eslint_executable = 'eslint'
@@ -99,7 +124,8 @@ set autoindent
 set autoread                                                 " reload files when changed on disk, i.e. via `git checkout`
 set backspace=2                                              " Fix broken backspace in some setups
 set backupcopy=yes                                           " see :help crontab
-set clipboard=unnamedplus                                        " yank and paste with the system clipboard
+set clipboard=unnamedplus                                    " yank and paste with the system clipboard
+" set clipboard=unnamed                                      " osX Clipboard
 set directory-=.                                             " don't store swapfiles in the current directory
 set encoding=utf-8
 set ignorecase                                               " case-insensitive search
@@ -124,38 +150,6 @@ set hidden                                                   " don't auto save b
 
 "Autocmd
 "autocmd BufWrite * normal mzgg=G'z
-
-" keyboard shortcuts
-let mapleader = ','
-noremap <C-h> <C-w>h
-noremap <C-j> <C-w>j
-noremap <C-k> <C-w>k
-noremap <C-l> <C-w>l
-nnoremap <leader>a :Ack<space>
-nnoremap <leader>r :redraw!<CR>
-nnoremap <leader>d :NERDTreeToggle<CR>
-nnoremap <leader>e :source $MYVIMRC<CR>
-nnoremap <leader>W :FixWhitespace<CR>
-nnoremap <leader>z :Errors<CR>
-autocmd FileType js nnoremap <leader>p :Prettier<CR>
-nnoremap <leader>l :e!<CR>
-nnoremap <leader>g :Gstatus<CR>
-nnoremap <leader>h :Gdiff<CR>
-nnoremap <leader>n :tabnew<CR>
-nnoremap <leader>f za
-" nnoremap <leader>k :set foldmethod=indent<CR>
-nnoremap <leader>F $v%zf
-nnoremap <leader>b :CtrlPBuffer<CR>
-nnoremap <leader>t :TagbarToggle<CR>
-nnoremap <leader>q :ALEFindReferences<CR>
-
-"fkeys
-"TODO: Create 4 fkeys for working with Fugitive
-:nnoremap <F3> :bp<CR>
-:nnoremap <F4> :bn<CR>
-:nnoremap <F5> gT<CR>
-:nnoremap <F6> gt<CR>
-:nnoremap <F8> :w<CR>
 
 " Prettier Settings
 let g:prettier#config#trailing_comma = 'es5'
@@ -247,6 +241,7 @@ endif
 """"""""""
 " let g:easytags_suppress_ctags_warning = 1
 let g:easytags_async = 1
+let g:easytags_file = '~/.vim/tags'
 
 """"""""""
 ""JSDOC""
@@ -260,4 +255,3 @@ let g:jsdoc_input_description	= 1
 """"""""""""""""
 
 set conceallevel=0
-
