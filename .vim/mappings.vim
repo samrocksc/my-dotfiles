@@ -13,11 +13,11 @@ nnoremap <leader>z :Errors<CR>
 " Get the filetype of the file with :echo &filetype
 autocmd FileType rust nnoremap <leader>p :RustFmt<CR>
 autocmd FileType js nnoremap <leader>p :Prettier<CR>
-autocmd FileType typescript nnoremap <leader>m :TSDoc<CR>
-autocmd FileType typescript nnoremap <leader>] :TSDef<CR>
-autocmd FileType typescript nnoremap <leader>} :TSDefPreview<CR>
-autocmd FileType typescript nnoremap <leader>t :TSType<CR>
-autocmd FileType typescript nnoremap <leader>T :TSTypeDef<CR>
+" autocmd FileType typescript nnoremap <leader>m :TSDoc<CR>
+" autocmd FileType typescript nnoremap <leader>] :TSDef<CR>
+" autocmd FileType typescript nnoremap <leader>} :TSDefPreview<CR>
+" autocmd FileType typescript nnoremap <leader>t :TSType<CR>
+" autocmd FileType typescript nnoremap <leader>T :TSTypeDef<CR>
 nnoremap <leader>l :e!<CR>
 nnoremap <leader>g :vertical Gstatus<CR>
 nnoremap <leader>h :Gdiff<CR>
