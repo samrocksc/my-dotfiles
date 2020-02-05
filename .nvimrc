@@ -1,10 +1,12 @@
 " vim-plug
 call plug#begin()
 Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
+Plug 'junegunn/vim-emoji'
 " Plug 'leafgarland/typescript-vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " Plug 'quramy/tsuquyomi'
 " Plug 'mhartington/nvim-typescript', {'do': './install.sh'}
+Plug 'NLKNguyen/papercolor-theme'
 Plug 'Shougo/denite.nvim'
 Plug 'jonsmithers/vim-html-template-literals'
 Plug 'othree/jsdoc-syntax.vim'
