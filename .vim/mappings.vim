@@ -4,6 +4,7 @@ noremap <C-h> <C-w>h
 noremap <C-j> <C-w>j
 noremap <C-k> <C-w>k
 noremap <C-l> <C-w>l
+
 nnoremap <leader>a :Ack!<space>
 nnoremap <leader>r :redraw!<CR>
 nnoremap <leader>d :NERDTreeToggle<CR>

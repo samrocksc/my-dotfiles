@@ -6,7 +6,8 @@ set nobackup
 set nowritebackup
 
 " Better display for messages
-set cmdheight=2
+" This is the buffer at the bottom of the screen
+set cmdheight=1
 
 " You will have bad experience for diagnostic messages when it's default 4000.
 set updatetime=300
@@ -127,4 +128,10 @@ nnoremap <silent> <space>j  :<C-u>CocNext<CR>
 nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list
 nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
+
+
+" === coc.nvim === "
+nmap <silent> <leader>cd <Plug>(coc-definition)
+nmap <silent> <leader>cr <Plug>(coc-references)
+nmap <silent> <leader>cj <Plug>(coc-implementation)
 

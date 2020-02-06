@@ -1,5 +1,5 @@
 " Airline
-let g:airline#extensions#tabline#enabled = 1
+" let g:airline#extensions#tabline#enabled = 1
 set smartindent
 set autoindent
 set autoread                                                 " reload files when changed on disk, i.e. via `git checkout`
