@@ -1,0 +1,32 @@
+{
+  "suggest.echodocSupport": true,
+  "suggest.maxCompleteItemCount": 20,
+  "coc.preferences.formatOnSaveFiletypes": [
+    "javascript",
+    "typescript",
+    "typescriptreact",
+    "json",
+    "javascriptreact",
+    "typescript.tsx",
+    "css",
+    "markdown",
+    "Markdown"
+  ],
+  "eslint.filetypes": ["javascript", "typescript", "typescriptreact", "javascriptreact", "typescript.tsx"],
+  "git.enableGutters": false,
+  "diagnostic.errorSign": ">>",
+  "diagnostic.warningSign": "⚠",
+  "diagnostic.infoSign": ">>",
+  "coc.source.emoji.filetypes": [
+    "javascript",
+    "typescript",
+    "typescriptreact",
+    "json",
+    "javascriptreact",
+    "typescript.tsx",
+    "css",
+    "markdown",
+    "Markdown"
+  ],
+  "coc.source.emoji.shortcut": "::"
+}

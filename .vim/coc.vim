@@ -131,7 +131,7 @@ nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
 
 
 " === coc.nvim === "
-nmap <silent> <leader>cd <Plug>(coc-definition)
-nmap <silent> <leader>cr <Plug>(coc-references)
-nmap <silent> <leader>cj <Plug>(coc-implementation)
+" nmap <silent> <leader>cd <Plug>(coc-definition)
+" nmap <silent> <leader>cr <Plug>(coc-references)
+" nmap <silent> <leader>cj <Plug>(coc-implementation)
 

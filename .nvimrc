@@ -1,20 +1,15 @@
 " vim-plug
 call plug#begin()
 Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
-" Plug 'junegunn/vim-emoji'
+
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-" Plug 'NLKNguyen/papercolor-theme'
-" Plug 'Shougo/denite.nvim'
 Plug 'jonsmithers/vim-html-template-literals'
 Plug 'othree/jsdoc-syntax.vim'
 Plug 'nanotech/jellybeans.vim'
-" Plug 'davejlong/cf-utils.vim'
 Plug 'heavenshell/vim-jsdoc'
 Plug 'mileszs/ack.vim'
-" Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
-" Plug 'tpope/vim-sensible'
 Plug 'kien/ctrlp.vim'
 Plug 'sheerun/vim-polyglot'
 Plug 'bronson/vim-trailing-whitespace'
@@ -24,6 +19,8 @@ Plug 'Shougo/vimproc.vim', {'do' : 'make'}
 Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'mhinz/vim-signify'
+Plug 'airblade/vim-gitgutter'
 Plug 'scrooloose/nerdtree'
 Plug 'ryanoasis/vim-devicons'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'

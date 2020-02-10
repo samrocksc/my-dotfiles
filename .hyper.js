@@ -150,10 +150,10 @@ module.exports = {
     "hyper-search",
     // "hyper-statusline",
     "hyper-pane",
-    "hyper-font-ligatures",
+    // "hyper-font-ligatures",
     "hyperminimal",
-    "hyper-emoji",
-    "hyper-spotify"
+    "hyper-emoji"
+    // "hyper-spotify"
   ],
 
   // in development, you can create a directory under
@@ -169,10 +169,10 @@ module.exports = {
     debug: false,
     hotkeys: {},
     showIndicators: false
-  },
-  hyperSpotify: {
-    position: "bottom", // or 'bottom'
-    margin: "default", // or 'double' or custom value
-    controlsPosition: "default" // or 'left' or 'right'
   }
+  // hyperSpotify: {
+  //   position: "bottom", // or 'bottom'
+  //   margin: "default", // or 'double' or custom value
+  //   controlsPosition: "default" // or 'left' or 'right'
+  // }
 };
