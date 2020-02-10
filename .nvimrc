@@ -1,7 +1,7 @@
 " vim-plug
 call plug#begin()
 Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
-
+Plug 'ryanoasis/vim-devicons'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'jonsmithers/vim-html-template-literals'
 Plug 'othree/jsdoc-syntax.vim'
