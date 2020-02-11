@@ -10,6 +10,8 @@ Plug 'heavenshell/vim-jsdoc'
 Plug 'mileszs/ack.vim'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-rhubarb'
+Plug 'tommcdo/vim-fubitive'
 Plug 'kien/ctrlp.vim'
 Plug 'sheerun/vim-polyglot'
 Plug 'bronson/vim-trailing-whitespace'
@@ -58,4 +60,6 @@ source ~/.vim/prettier.vim
 source ~/.vim/markdown.vim
 source ~/.vim/airline.vim
 source ~/.vim/ui.vim
+source ~/.vim/fugitive.vim
+source ~/.vim/workonly.vim
 
