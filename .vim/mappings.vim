@@ -16,6 +16,7 @@ autocmd FileType rust nnoremap <leader>p :RustFmt<CR>
 autocmd FileType js nnoremap <leader>p :Prettier<CR>
 nnoremap <leader>l :e!<CR>
 nnoremap <leader>g :vertical Gstatus<CR>
+nnoremap <leader>G Gstatus<CR>
 nnoremap <leader>h :Gdiff<CR>
 nnoremap <leader>n :tabnew<CR>
 nnoremap <leader>f za
