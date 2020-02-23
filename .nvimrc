@@ -1,11 +1,17 @@
 " vim-plug
 call plug#begin()
+" Plug 'maxmellon/vim-jsx-pretty'
+Plug 'junegunn/fzf', { 'do': './install --bin' }
+Plug 'junegunn/fzf.vim'
+Plug 'w0rp/ale'
+Plug 'leafgarland/typescript-vim'
 Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
 Plug 'ryanoasis/vim-devicons'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'jonsmithers/vim-html-template-literals'
 Plug 'othree/jsdoc-syntax.vim'
 Plug 'nanotech/jellybeans.vim'
+Plug 'gosukiwi/vim-atom-dark'
 Plug 'heavenshell/vim-jsdoc'
 Plug 'mileszs/ack.vim'
 Plug 'tpope/vim-commentary'
@@ -62,4 +68,5 @@ source ~/.vim/airline.vim
 source ~/.vim/ui.vim
 source ~/.vim/fugitive.vim
 source ~/.vim/workonly.vim
+source ~/.vim/fzf.vim
 

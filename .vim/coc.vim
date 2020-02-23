@@ -1,10 +1,3 @@
-" if hidden is not set, TextEdit might fail.
-set hidden
-
-" Some servers have issues with backup files, see #649
-set nobackup
-set nowritebackup
-
 " Better display for messages
 " This is the buffer at the bottom of the screen
 set cmdheight=1
@@ -131,7 +124,7 @@ nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
 
 
 " === coc.nvim === "
-" nmap <silent> <leader>cd <Plug>(coc-definition)
-" nmap <silent> <leader>cr <Plug>(coc-references)
-" nmap <silent> <leader>cj <Plug>(coc-implementation)
+nmap <silent> <leader>cd <Plug>(coc-definition)
+nmap <silent> <leader>cr <Plug>(coc-references)
+nmap <silent> <leader>cj <Plug>(coc-implementation)
 

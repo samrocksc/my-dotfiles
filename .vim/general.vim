@@ -1,5 +1,7 @@
-colorscheme jellybeans
 syntax enable
+syntax sync fromstart
+colorscheme jellybeans
+" colorscheme atom-dark-256
 
 " Enable basic mouse behavior such as resizing buffers.
 set mouse=a

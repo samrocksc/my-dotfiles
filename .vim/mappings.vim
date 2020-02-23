@@ -22,11 +22,12 @@ nnoremap <leader>n :tabnew<CR>
 nnoremap <leader>f za
 " nnoremap <leader>k :set foldmethod=indent<CR>
 nnoremap <leader>F $v%zf
-nnoremap <leader>b :CtrlPBuffer<CR>
-nnoremap <leader>B :CtrlPMixed<CR>
+" nnoremap <leader>b :CtrlPBuffer<CR>
+" nnoremap <leader>B :CtrlPMixed<CR>
 " nnoremap <leader>t :TagbarToggle<CR>
 nnoremap <leader>q :ALEFindReferences<CR>
 nnoremap <leader>t :sp term://zsh<CR>
+nnoremap <leader>T :vertical terminal<CR>
 nnoremap <leader>cf :CocFix<CR>
 nnoremap <leader>ca :CocAction<CR>
 
