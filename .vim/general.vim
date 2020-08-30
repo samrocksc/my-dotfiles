@@ -14,3 +14,5 @@ hi CursorLine term=bold cterm=bold guibg=Grey40
 if has('conceal')
   set conceallevel=2 concealcursor=niv
 endif
+
+let g:ctrlp_custom_ignore = 'node_modules\'

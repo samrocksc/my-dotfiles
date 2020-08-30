@@ -1,4 +1,5 @@
 " keyboard shortcuts
+" let mapleader = "\<Space>"
 let mapleader = ','
 noremap <C-h> <C-w>h
 noremap <C-j> <C-w>j
@@ -10,26 +11,43 @@ nnoremap <leader>r :redraw!<CR>
 nnoremap <leader>d :NERDTreeToggle<CR>
 nnoremap <leader>e :source $MYVIMRC<CR>
 nnoremap <leader>W :FixWhitespace<CR>
-nnoremap <leader>z :Errors<CR>
 " Get the filetype of the file with :echo &filetype
 autocmd FileType rust nnoremap <leader>p :RustFmt<CR>
 autocmd FileType js nnoremap <leader>p :Prettier<CR>
+autocmd FileType tf nnoremap <leader>p :Prettier<CR>
 nnoremap <leader>l :e!<CR>
 nnoremap <leader>g :vertical Gstatus<CR>
-nnoremap <leader>G Gstatus<CR>
+nnoremap <leader>G :Gstatus<CR>
 nnoremap <leader>h :Gdiff<CR>
 nnoremap <leader>n :tabnew<CR>
 nnoremap <leader>f za
 " nnoremap <leader>k :set foldmethod=indent<CR>
 nnoremap <leader>F $v%zf
-" nnoremap <leader>b :CtrlPBuffer<CR>
+nnoremap <leader>b :CtrlPBuffer<CR>
 " nnoremap <leader>B :CtrlPMixed<CR>
 " nnoremap <leader>t :TagbarToggle<CR>
 nnoremap <leader>q :ALEFindReferences<CR>
 nnoremap <leader>t :sp term://zsh<CR>
 nnoremap <leader>T :vertical terminal<CR>
+
+nnoremap <leader>zd :DogeGenerate<CR>
+
 nnoremap <leader>cf :CocFix<CR>
 nnoremap <leader>ca :CocAction<CR>
+nnoremap <leader>co :lopen<CR>
+nnoremap <leader>cc :lclose<CR>
+
+
+nnoremap <leader>mt :CocList todolist<CR>
+nnoremap <leader>mn :CocCommand todolist.create<CR>
+nnoremap <leader>mu :CocCommand todolist.upload<CR>
+nnoremap <leader>md :CocCommand todolist.download<CR>
+nnoremap <leader>mb :CocCommand todolist.browserOpenGist<CR>
+
+
+
+
+
 
 
 "fkeys

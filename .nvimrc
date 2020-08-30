@@ -1,9 +1,14 @@
 " vim-plug
 call plug#begin()
 " Plug 'maxmellon/vim-jsx-pretty'
-Plug 'junegunn/fzf', { 'do': './install --bin' }
-Plug 'junegunn/fzf.vim'
+" Plug 'heavenshell/vim-jsdoc'
+" Plug 'tpope/vim-markdown'
 Plug 'w0rp/ale'
+" Plug 'ddollar/nerdcommenter'
+Plug 'leafOfTree/vim-svelte-plugin'
+Plug 'sotte/presenting.vim'
+Plug 'aserebryakov/vim-todo-lists'
+Plug 'hashivim/vim-terraform'
 Plug 'leafgarland/typescript-vim'
 Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
 Plug 'ryanoasis/vim-devicons'
@@ -12,7 +17,7 @@ Plug 'jonsmithers/vim-html-template-literals'
 Plug 'othree/jsdoc-syntax.vim'
 Plug 'nanotech/jellybeans.vim'
 Plug 'gosukiwi/vim-atom-dark'
-Plug 'heavenshell/vim-jsdoc'
+Plug 'kkoomen/vim-doge'
 Plug 'mileszs/ack.vim'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
@@ -68,5 +73,6 @@ source ~/.vim/airline.vim
 source ~/.vim/ui.vim
 source ~/.vim/fugitive.vim
 source ~/.vim/workonly.vim
-source ~/.vim/fzf.vim
+source ~/.vim/terraform.vim
+source ~/.vim/doge.vim
 

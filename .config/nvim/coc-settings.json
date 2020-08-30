@@ -1,32 +1,26 @@
 {
   "suggest.echodocSupport": true,
-  "suggest.maxCompleteItemCount": 20,
+  "suggest.maxCompleteItemCount": 30,
+  "suggest.enablePreview": true,
   "coc.preferences.formatOnSaveFiletypes": [
     "javascript",
     "typescript",
     "typescriptreact",
     "json",
     "javascriptreact",
-    "typescript.tsx",
-    "css",
-    "markdown",
-    "Markdown"
+    "typescript.tsx"
   ],
-  "eslint.filetypes": ["javascript", "typescript", "typescriptreact", "javascriptreact", "typescript.tsx"],
-  "git.enableGutters": false,
-  "diagnostic.errorSign": ">>",
-  "diagnostic.warningSign": "⚠",
-  "diagnostic.infoSign": ">>",
-  "coc.source.emoji.filetypes": [
-    "javascript",
-    "typescript",
-    "typescriptreact",
-    "json",
-    "javascriptreact",
-    "typescript.tsx",
-    "css",
-    "markdown",
-    "Markdown"
-  ],
-  "coc.source.emoji.shortcut": "::"
-}
+  "diagnostic.errorSign": "•",
+  "diagnostic.warningSign": "•",
+  "diagnostic.infoSign": "•",
+  "todolist.enable": true,
+  "todolist.autoUpload": true,
+  "todolist.notify": "floating",
+  "markdownlint.config": {
+    "line_length": false
+  },
+  "tsserver.implicitProjectConfig.experimentalDecorators": true,
+  "tsserver.enableJavascript": true,
+  "tsserver.formatOnType": true,
+  "tsserver.implicitProjectConfig.checkJs": false,
+"

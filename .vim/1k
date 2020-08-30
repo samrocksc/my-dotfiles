@@ -27,5 +27,6 @@
     "css",
     "markdown",
     "Markdown"
-  ]
+  ],
+  prettier.printWidth: 100
 }
