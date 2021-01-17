@@ -2,6 +2,11 @@
 " let g:airline#extensions#tabline#enabled = 1
 set smartindent
 set autoindent
+
+" makes nvim faster on osx
+set nocompatible
+set ttyfast
+
 " reload files when changed on disk, i.e. via `git checkout`
 set autoread
 " Fix broken backspace in some setups
@@ -31,6 +36,9 @@ set ruler
 set scrolloff=3
 set showcmd
 
+set cursorline!
+set lazyredraw
+
 " actual tabs occupy 8 characters
 set tabstop=2
 set wildignore=log/**,node_modules/**,target/**,tmp/**,tags*,*.rbc
@@ -43,12 +51,27 @@ set softtabstop=2
 set autowrite
 " don't auto save buffers
 set hidden
+
 " Some servers have issues with backup files, see #649
 set nobackup
 set nowritebackup
 " You will have bad experience for diagnostic messages when it's default 4000.
 set updatetime=300
+
 " don't give |ins-completion-menu| messages.
 set shortmess+=c
+
 " always show signcolumns
 set signcolumn=yes
+
+" Enable basic mouse behavior such as resizing buffers.
+set mouse=a
+
+" Bold Cursor
+set cursorline
+hi CursorLine term=bold cterm=bold guibg=Grey40
+
+" For conceal markers.
+if has('conceal')
+  set conceallevel=2 concealcursor=niv
+endif

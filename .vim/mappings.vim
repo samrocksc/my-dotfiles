@@ -1,5 +1,4 @@
 " keyboard shortcuts
-" let mapleader = "\<Space>"
 let mapleader = ','
 noremap <C-h> <C-w>h
 noremap <C-j> <C-w>j
@@ -14,6 +13,7 @@ nnoremap <leader>W :FixWhitespace<CR>
 " Get the filetype of the file with :echo &filetype
 autocmd FileType rust nnoremap <leader>p :RustFmt<CR>
 autocmd FileType js nnoremap <leader>p :Prettier<CR>
+autocmd FileType tsx nnoremap <leader>p :Prettier<CR>
 autocmd FileType tf nnoremap <leader>p :Prettier<CR>
 nnoremap <leader>l :e!<CR>
 nnoremap <leader>g :vertical Gstatus<CR>
@@ -43,11 +43,6 @@ nnoremap <leader>mn :CocCommand todolist.create<CR>
 nnoremap <leader>mu :CocCommand todolist.upload<CR>
 nnoremap <leader>md :CocCommand todolist.download<CR>
 nnoremap <leader>mb :CocCommand todolist.browserOpenGist<CR>
-
-
-
-
-
 
 
 "fkeys

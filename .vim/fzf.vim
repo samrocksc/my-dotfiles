@@ -36,7 +36,7 @@ else
   if executable('ag')
     let g:ackprg = 'ag --vimgrep'
   endif
-  let g:ag_working_path_mode="r"
+  " let g:ag_working_path_mode="r"
   let g:jsx_ext_required = 0
   """""""""""""""""""""""""""
   """The Silver Searcher"""""
@@ -50,6 +50,7 @@ else
 
     " " ag is fast enough that CtrlP doesn't need to cache
     let g:ctrlp_use_caching = 0
+    let g:ctrlp_custom_ignore = '\v[\/]\.(DS_Storegit|hg|svn|optimized|compiled|node_modules)$'
   endif
   nnoremap <leader>b :CtrlPBuffer<CR>
   nnoremap <leader>B :CtrlPMixed<CR>
