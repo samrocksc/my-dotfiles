@@ -1,4 +1,3 @@
-
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
@@ -9,7 +8,6 @@ export ZSH=~/.oh-my-zsh
 #Comment this out if MacOSx
 source $ZSH/oh-my-zsh.sh
 
-
 # General System Stuff
 ## Reload Fonts
 alias reloadfonts='fc-cache -fv'
@@ -17,23 +15,18 @@ alias resource='source ~/.zshrc'
 alias remux='tmux source ~/.tmux.conf'
 
 
-alias tf='terraform'
-alias tb='taskbook'
+code () { VSCODE_CWD="$PWD" open -n -b "com.microsoft.VSCode" --args $* ;}
+
+
 
 # Node Shit
 alias nmrimraf='rm -rf node_modules && rm -rf package-lock.json && npm i'
-
-# ngrok shit
-ngrokIt() {  }
+alias npmglobals='npm ls -g --depth 0'
 
 # Test Shit
 jsearch() { npx jest -t "$1" --watch  }
 
-
-# google cloud shit
-gcplogs() {
-  gcloud functions logs read --region europe-west1 "$1"
-}
+# google pubsub shit
 gpsCreateTopic() { gcloud pubsub topics create "$1" }
 gpsCreateSubscription() {
   local deadline="${3:10}"
@@ -44,15 +37,6 @@ gpsPublishMessage() {
   gcloud pubsub topics publish "$1" --message="$message"
 }
 gpsPullSubscription() {gcloud pubsub subscriptions pull --auto-ack $1}
-alias gai="gcloud alpha interactive"
-
-gcloudSwitchProjects() {
-  gcloud config set project $2
-}
-
-kbPrintSettings() {
-  kubectl config view --minify --raw
-}
 
 
 # taskwarrior
@@ -99,8 +83,7 @@ alias dcps='docker-compose ps'
 alias dps='docker ps'
 alias dex='docker exec -t'
 alias dimages='docker images'
-alias startpostgres='sudo docker run --rm   --name pg-docker -e POSTGRES_PASSWORD=docker -d -p 5432:5432 -v $HOME/docker/volumes/postgres:/var/lib/postgresql/data  postgres'
-alias startredis='docker run -p 6379:6379 redis '
+alias dpostgres='sudo docker run --rm   --name pg-docker -e POSTGRES_PASSWORD=docker -d -p 5432:5432 -v $HOME/docker/volumes/postgres:/var/lib/postgresql/data  postgres'
 
 
 # source ~/.profile
@@ -108,7 +91,6 @@ alias blowcolon='docker run --rm -v /var/run/docker.sock:/var/run/docker.sock zz
 alias colonblow='sudo rm -rf /private/var/log/*'
 
 # Folder Aliases
-alias cstash='git stash show -p stash@{0}'
 alias catcd='cat ~/.zshrc | grep cd'
 alias gts='cd ~/sync/Documents'
 alias gtw='cd ~/GitHub/work'
@@ -130,6 +112,7 @@ alias gentags='ctags -R src && sed -i ‘’ -E ‘/^(if|switch|function|module\
 
 
 alias vim='nvim'
+alias tf='terraform'
 
 # Postgres shit
 alias pgl='sudo -i -u postgres psql'
@@ -147,13 +130,15 @@ alias glog="git log --pretty=format:\"%C(yellow)\%h\%Cred\%d\\ \%Creset\%s\%Cblu
 export PATH=~/.npm-global/bin:$PATH
 export PATH=~/.cargo/bin:$PATH
 export PATH=/opt/bin:$PATH
+export PATH=$HOME/go/bin:$PATH
 export PATH=$PATH:/usr/local/go/bin
+export GOPATH=$HOME/go
+export ANDROID_HOME=$HOME/Library/Android/sdk
+export PATH=$ANDROID_HOME/emulator:$PATH
 export PATH=$HOME/.local/kitty.app/bin:$PATH
-export PATH=/home/linuxbrew/.linuxbrew/bin:$PATH
-export DENO_INSTALL="/home/sam/.deno"
+export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk-14.jdk/Contents/Home/
+export DENO_INSTALL="/Users/samuelclark/.deno"
 export PATH="$DENO_INSTALL/bin:$PATH"
-
-
 
 # Expose Ports
 alias ngmysql='ngrok tcp 3306'
@@ -185,10 +170,28 @@ ZSH_DISABLE_COMPFIX=true
 
 # Added by serverless binary installer
 export PATH="$HOME/.serverless/bin:$PATH"
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+source /Users/samuelclark/.npm-run.plugin.zsh/npm-run.plugin.zsh
+
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+# export PATH="$PATH:$HOME/.rvm/bin"
+# unset zle_bracketed_paste
+# unset zle_bracketed_paste
 
 # The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/samc/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/samc/Downloads/google-cloud-sdk/path.zsh.inc'; fi
+# if [ -f '/Users/samuelclark/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/samuelclark/Downloads/google-cloud-sdk/path.zsh.inc'; fi
 
 # The next line enables shell command completion for gcloud.
-if [ -f '/Users/samc/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/samc/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
-[[ /home/linuxbrew/.linuxbrew/bin/kubectl ]] && source <(kubectl completion zsh)
+# if [ -f '/Users/samuelclark/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/samuelclark/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
+
+# The next line updates PATH for the Google Cloud SDK.
+# if [ -f '/Users/samuelclark/Downloads/google-cloud-sdk 2/path.zsh.inc' ]; then . '/Users/samuelclark/Downloads/google-cloud-sdk 2/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+# if [ -f '/Users/samuelclark/Downloads/google-cloud-sdk 2/completion.zsh.inc' ]; then . '/Users/samuelclark/Downloads/google-cloud-sdk 2/completion.zsh.inc'; fi
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/samuelclark/Downloads/google-cloud-sdk 2/path.zsh.inc' ]; then . '/Users/samuelclark/Downloads/google-cloud-sdk 2/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/samuelclark/Downloads/google-cloud-sdk 2/completion.zsh.inc' ]; then . '/Users/samuelclark/Downloads/google-cloud-sdk 2/completion.zsh.inc'; fi

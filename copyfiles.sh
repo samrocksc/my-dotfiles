@@ -1,5 +1,7 @@
 cp ~/.nvimrc ./
 cp -R ~/.tmux ./
+cp -R ~/.tmux.conf ./
+cp -R ~/.tmux.conf.local ./
 cp -R ~/.config/kitty ./.config
 cp ~/.config/nvim/init.vim .config/nvim/init.vim
 cp ~/.config/nvim/coc-settings.json .config/nvim/coc-settings.json
