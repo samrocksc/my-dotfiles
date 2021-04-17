@@ -1,4 +1,3 @@
-
 " === NERDTree === "
 " Show hidden files/directories
 let g:NERDTreeShowHidden = 1

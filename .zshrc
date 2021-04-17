@@ -1,3 +1,4 @@
+
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
@@ -20,7 +21,7 @@ code () { VSCODE_CWD="$PWD" open -n -b "com.microsoft.VSCode" --args $* ;}
 
 
 # Node Shit
-alias nmrimraf='rm -rf node_modules && rm -rf package-lock.json && npm i'
+alias nmrimraf='rm -rf node_modules && npm i'
 alias npmglobals='npm ls -g --depth 0'
 
 # Test Shit
@@ -153,6 +154,8 @@ alias npmLogin='npm login --registry=https://registry.npmjs.org/'
 alias npmLogout='npm logout --registry=https://registry.npmjs.org/'
 alias npmGlobalPackages='npm list -g --depth 0'
 
+
+
 DISABLE_AUTO_TITLE="true"
 plugins=(git)
 
@@ -171,27 +174,6 @@ ZSH_DISABLE_COMPFIX=true
 # Added by serverless binary installer
 export PATH="$HOME/.serverless/bin:$PATH"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-source /Users/samuelclark/.npm-run.plugin.zsh/npm-run.plugin.zsh
+# source /Users/samuelclark/.npm-run.plugin.zsh/npm-run.plugin.zsh
 
-# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-# export PATH="$PATH:$HOME/.rvm/bin"
-# unset zle_bracketed_paste
-# unset zle_bracketed_paste
 
-# The next line updates PATH for the Google Cloud SDK.
-# if [ -f '/Users/samuelclark/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/samuelclark/Downloads/google-cloud-sdk/path.zsh.inc'; fi
-
-# The next line enables shell command completion for gcloud.
-# if [ -f '/Users/samuelclark/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/samuelclark/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
-
-# The next line updates PATH for the Google Cloud SDK.
-# if [ -f '/Users/samuelclark/Downloads/google-cloud-sdk 2/path.zsh.inc' ]; then . '/Users/samuelclark/Downloads/google-cloud-sdk 2/path.zsh.inc'; fi
-
-# The next line enables shell command completion for gcloud.
-# if [ -f '/Users/samuelclark/Downloads/google-cloud-sdk 2/completion.zsh.inc' ]; then . '/Users/samuelclark/Downloads/google-cloud-sdk 2/completion.zsh.inc'; fi
-
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/samuelclark/Downloads/google-cloud-sdk 2/path.zsh.inc' ]; then . '/Users/samuelclark/Downloads/google-cloud-sdk 2/path.zsh.inc'; fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f '/Users/samuelclark/Downloads/google-cloud-sdk 2/completion.zsh.inc' ]; then . '/Users/samuelclark/Downloads/google-cloud-sdk 2/completion.zsh.inc'; fi
