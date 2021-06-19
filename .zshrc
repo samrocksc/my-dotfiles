@@ -18,6 +18,15 @@ alias remux='tmux source ~/.tmux.conf'
 
 code () { VSCODE_CWD="$PWD" open -n -b "com.microsoft.VSCode" --args $* ;}
 
+# Rad shit
+gls() {
+  clear
+  nvm version
+  git status
+  pwd
+  ls -l
+}
+
 
 
 # Node Shit

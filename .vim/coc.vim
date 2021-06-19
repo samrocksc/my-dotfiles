@@ -57,8 +57,11 @@ nmap <silent> ]g <Plug>(coc-diagnostic-next)
 
 " GoTo code navigation.
 nmap <silent> gd <Plug>(coc-definition)
+" goes to a type definition
 nmap <silent> gy <Plug>(coc-type-definition)
+" goes to declaration of variable
 nmap <silent> gi <Plug>(coc-implementation)
+" shows all references
 nmap <silent> gr <Plug>(coc-references)
 
 " Use K to show documentation in preview window.
@@ -81,8 +84,8 @@ autocmd CursorHold * silent call CocActionAsync('highlight')
 nmap <leader>rn <Plug>(coc-rename)
 
 " Formatting selected code.
-xmap <leader>f  <Plug>(coc-format-selected)
-nmap <leader>f  <Plug>(coc-format-selected)
+" xmap <leader>f  <Plug>(coc-format-selected)
+" nmap <leader>f  <Plug>(coc-format-selected)
 
 augroup mygroup
   autocmd!
@@ -162,4 +165,5 @@ nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
 
 nnoremap <leader>cf :CocFix<CR>
 nnoremap <leader>ca :CocAction<CR>
-nnoremap <leader>co :CocList diagnostics<CR>
+nnoremap <leader>cd :CocList diagnostics<CR>
+nnoremap <leader>cd :CocList outline<CR>

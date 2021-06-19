@@ -10,9 +10,10 @@ nnoremap <leader>r :redraw!<CR>
 nnoremap <leader>e :source $MYVIMRC<CR>
 nnoremap <leader>l :e!<CR>
 nnoremap <leader>g :vertical Gstatus<CR>
+nnoremap <leader>s :Snippets<CR>
+nnoremap <leader>f :FZF<CR>
 
-" nmap <C-P> :FZF<CR>
-nmap <C-P> :GFiles<CR> 
+nmap <C-P> :GFiles<CR>
 nnoremap <leader>b :Buffers<CR>
 nnoremap <leader>a :Ag<CR>
 
