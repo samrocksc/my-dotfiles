@@ -20,6 +20,9 @@ Plug 'vim-airline/vim-airline'"
 Plug 'mustache/vim-mustache-handlebars'
 Plug 'mhinz/vim-signify'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+Plug 'joaohkfaria/vim-jest-snippets'
+Plug 'puremourning/vimspector'
+Plug 'vimwiki/vimwiki'
 " if has('nvim')
 "   Plug 'Shougo/neosnippet.vim'
 "   Plug 'roxma/nvim-yarp'
@@ -44,13 +47,7 @@ source ~/.vim/mappings.vim
 source ~/.vim/coc.vim
 source ~/.vim/nerdtree.vim
 source ~/.vim/terraform.vim
-
-" let g:vimwiki_list = [{'path': '~/vimwiki', 'template_path': '~/vimwiki/templates/',
-"           \ 'template_default': 'default', 'syntax': 'markdown', 'ext': '.md',
-"           \ 'path_html': '~/vimwiki/site_html/', 'custom_wiki2html': 'vimwiki_markdown',
-"           \ 'html_filename_parameterization': 1,
-"           \ 'template_ext': '.tpl'}]
-
+source ~/.vim/wiki.vim
 
 " let g:vimspector_enable_mappings = 'HUMAN'
 " " packadd ~/.vim/pack/vimspector/opt/vimspector
@@ -59,3 +56,8 @@ source ~/.vim/terraform.vim
 autocmd BufWritePre *.go :silent call CocAction('runCommand', 'editor.action.organizeImport')
 
 let g:node_client_debug = 1
+
+let $FZF_DEFAULT_COMMAND = 'ag -g ""'
+
+let g:vimspector_enable_mappings = 'HUMAN'
+" :call vimspector#Launch()
