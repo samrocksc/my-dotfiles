@@ -23,17 +23,10 @@ Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'joaohkfaria/vim-jest-snippets'
 Plug 'puremourning/vimspector'
 Plug 'vimwiki/vimwiki'
-" if has('nvim')
-"   Plug 'Shougo/neosnippet.vim'
-"   Plug 'roxma/nvim-yarp'
-"   Plug 'roxma/vim-hug-neovim-rpc'
-"   Plug 'Shougo/neosnippet-snippets'
-" else
-"   Plug 'roxma/nvim-yarp'
-"   Plug 'roxma/vim-hug-neovim-rpc'
-"   Plug 'Shougo/neosnippet.vim'
-"   Plug 'Shougo/neosnippet-snippets'
-" endif
+Plug 'jonsmithers/vim-html-template-literals'
+Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
+Plug 'mg979/vim-visual-multi', {'branch': 'master'}
+Plug 'easymotion/vim-easymotion'
 call plug#end()
 
 filetype plugin indent on
@@ -48,6 +41,7 @@ source ~/.vim/coc.vim
 source ~/.vim/nerdtree.vim
 source ~/.vim/terraform.vim
 source ~/.vim/wiki.vim
+source ~/.vim/vimspector.vim
 
 " let g:vimspector_enable_mappings = 'HUMAN'
 " " packadd ~/.vim/pack/vimspector/opt/vimspector

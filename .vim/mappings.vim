@@ -19,6 +19,9 @@ nnoremap <leader>a :Ag<CR>
 
 nnoremap <leader>W :FixWhitespace<CR>
 
+nnoremap <leader>we :pu=strftime('%Y.%m.%d')<CR>
+nnoremap <leader>wt :pu=strftime('%H%M')
+
 nnoremap <leader>d :NERDTreeToggle<CR>
 
 " Get the filetype of the file with :echo &filetype
