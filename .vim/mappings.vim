@@ -9,7 +9,7 @@ noremap <C-l> <C-w>l
 nnoremap <leader>r :redraw!<CR>
 nnoremap <leader>e :source $MYVIMRC<CR>
 nnoremap <leader>l :e!<CR>
-nnoremap <leader>g :vertical Gstatus<CR>
+nnoremap <leader>g :vertical Git<CR>
 nnoremap <leader>s :Snippets<CR>
 nnoremap <leader>f :FZF<CR>
 

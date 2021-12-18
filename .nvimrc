@@ -21,19 +21,12 @@ Plug 'mustache/vim-mustache-handlebars'
 Plug 'mhinz/vim-signify'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'joaohkfaria/vim-jest-snippets'
-Plug 'puremourning/vimspector'
+" Plug 'puremourning/vimspector'
 Plug 'vimwiki/vimwiki'
-" if has('nvim')
-"   Plug 'Shougo/neosnippet.vim'
-"   Plug 'roxma/nvim-yarp'
-"   Plug 'roxma/vim-hug-neovim-rpc'
-"   Plug 'Shougo/neosnippet-snippets'
-" else
-"   Plug 'roxma/nvim-yarp'
-"   Plug 'roxma/vim-hug-neovim-rpc'
-"   Plug 'Shougo/neosnippet.vim'
-"   Plug 'Shougo/neosnippet-snippets'
-" endif
+Plug 'jonsmithers/vim-html-template-literals'
+Plug 'pangloss/vim-javascript'
+Plug 'mg979/vim-visual-multi', {'branch': 'master'}
+Plug 'easymotion/vim-easymotion'
 call plug#end()
 
 filetype plugin indent on
@@ -59,5 +52,7 @@ let g:node_client_debug = 1
 
 let $FZF_DEFAULT_COMMAND = 'ag -g ""'
 
-let g:vimspector_enable_mappings = 'HUMAN'
+" let g:vimspector_enable_mappings = 'HUMAN'
 " :call vimspector#Launch()
+"
+nnoremap <BS> X
