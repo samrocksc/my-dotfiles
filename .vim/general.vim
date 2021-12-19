@@ -23,7 +23,9 @@ set ttyfast
 set autoread
 
 " Fix broken backspace in some setups
-set backspace=2
+" set backspace=2
+" set backspace=2
+set backspace=indent,eol,start
 set backupcopy=yes                                           " see :help crontab
 
 " yank and paste with the system clipboard

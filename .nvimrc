@@ -24,7 +24,7 @@ Plug 'joaohkfaria/vim-jest-snippets'
 " Plug 'puremourning/vimspector'
 Plug 'vimwiki/vimwiki'
 Plug 'jonsmithers/vim-html-template-literals'
-Plug 'pangloss/vim-javascript'
+Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 Plug 'mg979/vim-visual-multi', {'branch': 'master'}
 Plug 'easymotion/vim-easymotion'
 call plug#end()
@@ -41,6 +41,7 @@ source ~/.vim/coc.vim
 source ~/.vim/nerdtree.vim
 source ~/.vim/terraform.vim
 source ~/.vim/wiki.vim
+source ~/.vim/vimspector.vim
 
 " let g:vimspector_enable_mappings = 'HUMAN'
 " " packadd ~/.vim/pack/vimspector/opt/vimspector
