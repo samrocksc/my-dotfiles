@@ -2,20 +2,6 @@ alias suspend=sudo sh -c "echo mem > /sys/power/state"
 ###########################
 #########UBUNTU RC#########
 ###########################
-
-### Dependencies
-# zsh
-# oh-my-zsh
-# curl
-# i3lock
-# i3
-# go
-# node
-# git
-# yarn
-# nvm
-# python 3
-
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
@@ -29,6 +15,16 @@ source $ZSH/oh-my-zsh.sh
 #system commands
 alias hibernate="systemctl hibernate"
 alias lock="i3lock -c 000000"
+
+#hardware configuring
+alias devices="xinput"
+# xinput list-props ${id}
+# xinput set-prop [id] [property id] [value]
+# sudo xinput set-prop 11 333 1
+# setxkbmap -option ctrl:swapcaps
+
+# Clojure
+alias cljrepl="lein repl :headless :port 6666"
 
 alias weather="curl wttr.in/berlin"
 alias getmyip='dig +short myip.opendns.com @resolver1.opendns.com'
@@ -272,7 +268,14 @@ load-nvmrc() {
   fi
 }
 
-source ./.localenv
- 
+############ ASDF(elixir) #############
+. $HOME/.asdf/asdf.sh
+# append completions to fpath
+fpath=(${ASDF_DIR}/completions $fpath)
+# initialise completions with ZSH's compinit
+autoload -Uz compinit && compinit
+
+source ~/.localenv
+
 add-zsh-hook chpwd load-nvmrc
 load-nvmrc
