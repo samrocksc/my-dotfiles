@@ -21,12 +21,15 @@ Plug 'mustache/vim-mustache-handlebars'
 Plug 'mhinz/vim-signify'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'joaohkfaria/vim-jest-snippets'
+Plug 'jiangmiao/auto-pairs'
 " Plug 'puremourning/vimspector'
 Plug 'vimwiki/vimwiki'
 Plug 'jonsmithers/vim-html-template-literals'
-Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
+Plug 'pangloss/vim-javascript'
 Plug 'mg979/vim-visual-multi', {'branch': 'master'}
 Plug 'easymotion/vim-easymotion'
+Plug 'Olical/conjure'
+Plug 'vim-scripts/VimClojure'
 call plug#end()
 
 filetype plugin indent on
@@ -41,7 +44,6 @@ source ~/.vim/coc.vim
 source ~/.vim/nerdtree.vim
 source ~/.vim/terraform.vim
 source ~/.vim/wiki.vim
-source ~/.vim/vimspector.vim
 
 " let g:vimspector_enable_mappings = 'HUMAN'
 " " packadd ~/.vim/pack/vimspector/opt/vimspector
