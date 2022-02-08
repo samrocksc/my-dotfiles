@@ -1,66 +1,47 @@
-alias suspend=sudo sh -c "echo mem > /sys/power/state"
-###########################
-#########UBUNTU RC#########
-###########################
-# Set name of the theme to load.
-# Look in ~/.oh-my-zsh/themes/
-# Optionally, if you set this to "random", it'll load a random theme each
-# time that oh-my-zsh is loaded.
-ZSH_THEME="robbyrussell"
-export ZSH=~/.oh-my-zsh
+# If you come from bash you might have to change your $PATH.
+# export PATH=$HOME/bin:/usr/local/bin:$PATH
 
-#Comment this out if MacOSx
+# Path to your oh-my-zsh installation.
+export ZSH="$HOME/.oh-my-zsh"
+export LC_CTYPE=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
+
+# Set name of the theme to load --- if set to "random", it will
+# load a random theme each time oh-my-zsh is loaded, in which case,
+# to know which specific one was loaded, run: echo $RANDOM_THEME
+# See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
+# ZSH settings
+DISABLE_AUTO_TITLE="true"
+ZSH_THEME="robbyrussell"
+# Uncomment the following line to enable command auto-correction.
+# ENABLE_CORRECTION="true"
+
+# Standard plugins can be found in $ZSH/plugins/
+# Custom plugins may be added to $ZSH_CUSTOM/plugins/
+plugins=(git)
 source $ZSH/oh-my-zsh.sh
 
-#system commands
-alias hibernate="systemctl hibernate"
-alias lock="i3lock -c 000000"
+if [[ -n $SSH_CONNECTION ]]; then
+  export EDITOR='nvim'
+else
+  export EDITOR='nvim'
+fi
 
-#hardware configuring
-alias devices="xinput"
-# xinput list-props ${id}
-# xinput set-prop [id] [property id] [value]
-# sudo xinput set-prop 11 333 1
-# setxkbmap -option ctrl:swapcaps
+# user shit
 
-# Clojure
-alias cljrepl="lein repl :headless :port 6666"
+## alias shit
 
+### general shit
+alias resource='source ~/.zshrc'
+alias remux='tmux source ~/.tmux.conf'
 alias weather="curl wttr.in/berlin"
 alias getmyip='dig +short myip.opendns.com @resolver1.opendns.com'
 alias getnews="curl http://getnews.tech/"
-# map Q :r!curl -s 'wttr.in/berlin'<cr>
-
-
-# General System Stuff
-## Reload Fonts
-alias reloadfonts='fc-cache -fv'
-alias resource='source ~/.zshrc'
-alias remux='tmux source ~/.tmux.conf'
-
-# TODO: Connect to a docker container's bash
-# docker exec -it <mycontainer> bash
-
-alias mysetup='inxi -Fxzd '
-
-
 alias tf='terraform'
-alias tb='taskbook'
+alias vim='nvim'
+alias lvim='~/.local/bin/lvim'
 
-# Node Shit
-alias nmrimraf='rm -rf node_modules && rm -rf package-lock.json && npm i'
-
-# linux shit
-resetbt() {
-  sudo service bluetooth restart
-}
-
-# ngrok shit
-ngrokIt() {  }
-
-# Test Shit
-jsearch() { npx jest -t "$1" --watch  }
-
+#awesome shit
 # make it happen
 gls() {
   clear
@@ -70,63 +51,7 @@ gls() {
   ls -la
 }
 
-
- # google cloud shit
-gcplogs() {
-  gcloud functions logs read --region europe-west1 "$1"
-}
-gpsCreateTopic() { gcloud pubsub topics create "$1" }
-gpsCreateSubscription() {
-  local deadline="${3:10}"
-  gcloud pubsub subscriptions create "$1" --topic="$2" --ack-deadline="$deadline"
-}
-gpsPublishMessage() {
-  local message="${2:'Hello World'}"
-  gcloud pubsub topics publish "$1" --message="$message"
-}
-gpsPullSubscription() {gcloud pubsub subscriptions pull --auto-ack $1}
-alias gai="gcloud alpha interactive"
-
-gcloudSwitchProjects() {
-  gcloud config set project $2
-}
-
-kbPrintSettings() {
-  kubectl config view --minify --raw
-}
-
-
-# taskwarrior
-alias cattask='cat ~/.zshrc | grep task'
-alias ta='task add'
-alias tstart='task start'
-alias tstop='task stop'
-alias tcomp='task done'
-alias tm='task modify'
-alias td='task delete'
-alias tla='task list'
-alias tlc='task completed'
-alias tbd='task burndown.daily'
-alias tbw='task burndown.weekly'
-alias tbm='task burndown.monthly'
-
-# General Aliases
-alias uirestart='killall -KILL SystemUIServer && killall -KILL Finder && killall -KILL && killall -KILL NotificationCenter'
-alias swaggereditor='docker run --name openapi-gui -p 3137:3000 -d mermade/openapi-gui'
-
-# React Native
-alias rni='react-native run-ios'
-alias rna='react-native run-android'
-alias rnrimraf='rm -rf node_modules && npm i && npm start'
-alias devices='instruments -s devices'
-alias adbmenu='adb shell input keyevent 82'
-
-# GoLang
-alias godev='realize start'
-alias gpm='dep ensure'
-alias gpu='dep ensure -update'
-
-# Docker
+### docker shit
 alias catdocker='cat ~/.zshrc | grep docker'
 alias dc='docker-compose'
 alias dcr='docker-compose restart'
@@ -141,23 +66,41 @@ alias dex='docker exec -t'
 alias dimages='docker images'
 alias startpostgres='sudo docker run --rm   --name pg-docker -e POSTGRES_PASSWORD=docker -d -p 5432:5432 -v $HOME/docker/volumes/postgres:/var/lib/postgresql/data  postgres'
 alias startredis='docker run -p 6379:6379 redis '
+# TODO: Connect to a docker container's bash
+# docker exec -it <mycontainer> bash
+
+### yarn shit
+
+### npm shit
+alias ghLogout='npm logout --registry=https://npm.pkg.github.com'
+alias ghLogin='npm login --registry=https://npm.pkg.github.com'
+alias npmLogin='npm login --registry=https://registry.npmjs.org/'
+alias npmLogout='npm logout --registry=https://registry.npmjs.org/'
+alias npmGlobalPackages='npm list -g --depth 0'
+alias nmrimraf='rm -rf node_modules && rm -rf package-lock.json && npm i'
 
 
-# source ~/.profile
-alias blowcolon='docker run --rm -v /var/run/docker.sock:/var/run/docker.sock zzrot/docker-clean all'
-alias colonblow='sudo rm -rf /private/var/log/*'
-
-# Folder Aliases
+### folder shit
+alias catcd='cat $HOME/.zshrc | grep cd'
 alias cstash='git stash show -p stash@{0}'
-alias catcd='cat ~/.zshrc | grep cd'
-alias gts='cd ~/sync/Documents'
-alias gtw='cd ~/GitHub/work'
-alias gtp='cd ~/GitHub/personal'
-alias gtm='cd ~/GitHub/modules'
-alias gtg='cd ~/go/src/github.com/samrocksc'
+alias gts='cd $HOME/sync/Documents'
+alias gtw="cd $HOME/GitHub/work"
+alias gtp='cd $HOME/GitHub/personal'
+alias gtm='cd $HOME/GitHub/modules'
+alias gtg='cd $HOME/go/src/github.com/samrocksc'
 alias guntrack='git rm --cached'
 
-# Git Aliases
+### Expose Ports
+alias ngmysql='ngrok tcp 3306'
+alias sqltime='sqlpad --dbPath=~./db  --port 2929'
+qlTunnel3307() { ssh -L 3307:host:3306 sam@an.ip.here
+}
+
+### Git shit
+alias skittles='git log --graph --decorate'
+alias gco='git checkout'
+alias grs='git reset --soft HEAD^'
+alias glog="git log --pretty=format:\"%C(yellow)\%h\%Cred\%d\\ \%Creset\%s\%Cblue\\ [\%cn]\" --decorate --numstat"
 alias catgit='cat ~/.zshrc | grep git'
 alias ga='git add -p'
 alias gaa='git add'
@@ -165,88 +108,17 @@ alias gu='git add -u'
 alias gd='git diff'
 alias gdc='git diff --cached'
 
-# ctags shit
-alias gentags='ctags -R src && sed -i ‘’ -E ‘/^(if|switch|function|module\.exports|it|describe).+language:js$/d’ tags'
 
-
-alias vim='nvim'
-
-# Postgres shit
-alias pgl='sudo -i -u postgres psql'
-alias dpgl='psql -h localhost -p 5432 -U postgres'
-
-# Git shit
-alias skittles='git log --graph --decorate'
-alias gco='git checkout'
-alias grs='git reset --soft HEAD^'
-
-
-alias glog="git log --pretty=format:\"%C(yellow)\%h\%Cred\%d\\ \%Creset\%s\%Cblue\\ [\%cn]\" --decorate --numstat"
-
-# path shit
-export PATH=~/.npm-global/bin:$PATH
-export PATH=~/.cargo/bin:$PATH
-export PATH=/opt/bin:$PATH
+## path shit
 export PATH=$PATH:/usr/local/go/bin
-export PATH=$HOME/.local/kitty.app/bin:$PATH
-export PATH=/home/linuxbrew/.linuxbrew/bin:$PATH
-export DENO_INSTALL="/home/sam/.deno"
-export PATH="$DENO_INSTALL/bin:$PATH"
-export PATH="$HOME/go/bin:$PATH"
 export PATH="$HOME/go/bin:$PATH"
 export PATH="$HOME/.local/share/applications:$PATH"
-
-
-# Expose Ports
-alias ngmysql='ngrok tcp 3306'
-alias sqltime='sqlpad --dbPath=~./db  --port 2929'
-qlTunnel3307() { ssh -L 3307:host:3306 sam@an.ip.here
-}
-
-# NPM stuff
-alias ghLogout='npm logout --registry=https://npm.pkg.github.com'
-alias ghLogin='npm login --registry=https://npm.pkg.github.com'
-alias npmLogin='npm login --registry=https://registry.npmjs.org/'
-alias npmLogout='npm logout --registry=https://registry.npmjs.org/'
-alias npmGlobalPackages='npm list -g --depth 0'
-
-DISABLE_AUTO_TITLE="true"
-plugins=(git)
-
-if [[ -n $SSH_CONNECTION ]]; then
-  export EDITOR='nvim'
-else
-  export EDITOR='nvim'
-fi
-
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
-
-ZSH_DISABLE_COMPFIX=true
-
-
-export PATH="$HOME/.cabal/bin:$PATH"
-export PATH="/home/sam/.pyenv/bin:$PATH"
-eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
-
-autoload -U +X bashcompinit && bashcompinit
-complete -o nospace -C /usr/bin/terraform terraform
-
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/home/sam/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/home/sam/Downloads/google-cloud-sdk/path.zsh.inc'; fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f '/home/sam/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/sam/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
-# git config credential.helper store
-
-alias kubedev="gcloud container clusters get-credentials gke-cluster-staging-private \
-  --region=europe-west3 \
-  --project=hfc-experiments"
-alias kubestage="gcloud container clusters get-credentials gke-cluster-staging \
-  --region=europe-west3 \
-  --project=hfc-stage"
-
+export PATH="/usr/local/bin:$PATH"
+source $HOME/.cargo/env
+# export PATH="$HOME/Library/Python/2.7/bin:$PATH"
+# export PATH="$HOME/Library/Python/3.8/bin:$PATH"
 
 # place this after nvm initialization!
 autoload -U add-zsh-hook
@@ -268,14 +140,19 @@ load-nvmrc() {
   fi
 }
 
-############ ASDF(elixir) #############
-. $HOME/.asdf/asdf.sh
-# append completions to fpath
-fpath=(${ASDF_DIR}/completions $fpath)
-# initialise completions with ZSH's compinit
-autoload -Uz compinit && compinit
+# export PATH="/home/sam/.pyenv/bin:$PATH"
+# eval "$(pyenv init -)"
 
 source ~/.localenv
 
-add-zsh-hook chpwd load-nvmrc
 load-nvmrc
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+# eval "$(pyenv init -)"
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '~/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '~/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '~/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '~/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
+[[ /usr/local/bin/kubectl ]] && source <(kubectl completion zsh)
