@@ -1,7 +1,7 @@
 local fn = vim.fn
-local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
+local install_path = fn.stdpath('data') .. '/site/pack/packer/start/packer.nvim'
 if fn.empty(fn.glob(install_path)) > 0 then
-  packer_bootstrap = fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
+  packer_bootstrap = fn.system({ 'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path })
 end
 
 return require('packer').startup(function()
@@ -20,7 +20,7 @@ return require('packer').startup(function()
   use 'tpope/vim-commentary'
   use 'sheerun/vim-polyglot'
   use 'tpope/vim-rhubarb'
-  use {'neoclide/coc.nvim', branch = 'release'}
+  use { 'neoclide/coc.nvim', branch = 'release' }
   use 'scrooloose/nerdtree'
   use 'bronson/vim-trailing-whitespace'
   use 'hashivim/vim-terraform'
@@ -28,11 +28,11 @@ return require('packer').startup(function()
   use 'airblade/vim-gitgutter'
   use 'mustache/vim-mustache-handlebars'
   use 'mhinz/vim-signify'
-  use {'fatih/vim-go', cmd = 'GoUpdateBinaries' }
+  use { 'fatih/vim-go', cmd = 'GoUpdateBinaries' }
   use 'jiangmiao/auto-pairs'
   use 'vimwiki/vimwiki'
   use 'easymotion/vim-easymotion'
-  use {'mg979/vim-visual-multi', branch = 'master'}
+  use { 'mg979/vim-visual-multi', branch = 'master' }
   use 'fannheyward/telescope-coc.nvim'
   use 'nvim-lua/plenary.nvim'
   use 'nvim-lua/popup.nvim'
@@ -47,8 +47,7 @@ return require('packer').startup(function()
   use 'liuchengxu/vista.vim'
   use 'github/copilot.vim'
   use 'justinmk/vim-sneak'
-  use 'chentau/marks.nvim'
-  use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
+  use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
   use 'styled-components/vim-styled-components'
   use 'pangloss/vim-javascript'
   use 'puremourning/vimspector'
@@ -56,5 +55,3 @@ return require('packer').startup(function()
     require('packer').sync()
   end
 end)
-
-

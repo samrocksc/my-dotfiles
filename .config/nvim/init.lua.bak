@@ -1,3 +1,4 @@
+
 local map = vim.api.nvim_set_keymap -- set keys
 local o = vim.o -- set global options
 local wo = vim.wo -- windows options(line numbers)
@@ -8,17 +9,17 @@ vim.g.mapleader = ","
 require('plenary.reload').reload_module('my', true)
 
 -- This is the basic setup for reassigning hjkl keys to vim keys
-map("t", "<C-t>", "<cmd>ToggleTerm size=40 direction=float<cr>", { noremap = true })
-map("", "<C-t>", "<cmd>ToggleTerm size=40 direction=float<cr>", { noremap = true })
+map("t", "<C-t>", "<cmd>ToggleTerm size=40 direction=float<cr>", {noremap=true})
+map("", "<C-t>", "<cmd>ToggleTerm size=40 direction=float<cr>", {noremap=true})
 map("n", "<C-h>", "<C-w>h", {})
 map("n", "<C-j>", "<C-w>j", {})
 map("n", "<C-k>", "<C-w>k", {})
 map("n", "<C-l>", "<C-w>l", {})
 
-o.clipboard = "unnamedplus"
-o.ignorecase = true
-o.cmdheight = 2
-o.updatetime = 300
+o.clipboard="unnamedplus"
+o.ignorecase=true
+o.cmdheight=2
+o.updatetime=300
 o.swapfile = true
 o.dir = '/tmp'
 o.smartcase = true
@@ -82,12 +83,14 @@ vim.cmd('nmap <Leader>vh <Plug>VimspectorStepOut')
 vim.cmd('nmap <Leader>vl <Plug>VimspectorStepInto')
 vim.cmd('nmap <Leader>vj <Plug>VimspectorStepOver')
 
-require("plugins")
-require("keymaps")
+require ("plugins")
+require ("keymaps")
 -- require ("user/feline")
-require("user/lualine")
+require ("user/lualine")
+require("user/marks")
 require("user/telescope")
 require("user/toggleterm")
 vim.cmd 'source ~/.config/nvim/vimfiles/coc.vim'
 vim.cmd 'source ~/.config/nvim/vimfiles/nerdtree.vim'
 vim.cmd 'source ~/.config/nvim/vimfiles/wiki.vim'
+
