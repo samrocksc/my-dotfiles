@@ -15,6 +15,9 @@ return require('packer').startup(function()
     requires = { 'kyazdani42/nvim-web-devicons', opt = true }
   }
   use { "wbthomason/packer.nvim" }
+  use 'prettier/vim-prettier'
+  use 'sbdchd/neoformat'
+  use 'ray-x/lsp_signature.nvim'
   use 'tpope/vim-markdown'
   use 'tpope/vim-fugitive'
   use 'tpope/vim-commentary'
@@ -45,12 +48,13 @@ return require('packer').startup(function()
   use 'rhysd/git-messenger.vim'
   use 'akinsho/toggleterm.nvim'
   use 'liuchengxu/vista.vim'
-  use 'github/copilot.vim'
   use 'justinmk/vim-sneak'
   use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
   use 'styled-components/vim-styled-components'
   use 'pangloss/vim-javascript'
   use 'puremourning/vimspector'
+  use 'pantharshit00/vim-prisma'
+  use 'wuelnerdotexe/vim-astro'
   if packer_bootstrap then
     require('packer').sync()
   end

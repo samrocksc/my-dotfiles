@@ -1,9 +1,12 @@
+-- You have to make sure you have the proper plugins installed in order for this config to work with COC
+-- npm i -g markmap-cli
+-- CocInstall coc-tsserver coc-prettier coc-eslint coc-markmap coc-marketplace coc-webview coc-markdown-preview-enhanced coc-lightbulb coc-json coc-html
 local map = vim.api.nvim_set_keymap -- set keys
 local o = vim.o -- set global options
 local wo = vim.wo -- windows options(line numbers)
 local bo = vim.bo -- buffer local
 local g = vim.g -- global
-vim.g.mapleader = ","
+g.mapleader = " "
 
 require('plenary.reload').reload_module('my', true)
 
@@ -37,7 +40,6 @@ wo.wrap = true
 bo.expandtab = true
 
 vim.api.nvim_set_option("termguicolors", true)
-g.mapleader = ","
 
 vim.cmd('colorscheme jellybeans')
 vim.cmd('set smartindent')
@@ -65,11 +67,17 @@ vim.cmd('set cursorline')
 vim.cmd('hi CursorLine term=bold cterm=bold guibg=Grey20')
 vim.cmd('nnoremap <leader>we :pu=strftime(\'%d.%m.%Y\')<CR>')
 vim.cmd('nnoremap <leader>wt :pu=strftime(\'%H%M\')')
-vim.cmd('autocmd FileType js nnoremap <leader>p :Prettier<CR>')
-vim.cmd('autocmd FileType tsx nnoremap <leader>p :Prettier<CR>')
-vim.cmd('autocmd FileType tf nnoremap <leader>p :Prettier<CR>')
-vim.cmd('nnoremap <leader>p :Format<CR>')
+vim.cmd('autocmd FileType jsx nnoremap <leader>p :CocCommand prettier.formatFile<CR>')
+vim.cmd('autocmd FileType js nnoremap <leader>p :CocCommand prettier.formatFile<CR>')
+vim.cmd('autocmd FileType tsx nnoremap <leader>p :CocCommand prettier.formatFile<CR>')
+vim.cmd('autocmd FileType ts nnoremap <leader>p :CocCommand prettier.formatFile<CR>')
+vim.cmd('autocmd FileType sql nnoremap <leader>p :CocCommand sql.Format<CR>')
+--call CocAction('format')
 vim.cmd('let g:sneak#label = 1')
+vim.cmd('let g:UltiSnipsExpandTrigger="<c-h>"')
+vim.cmd('let g:UltiSnipsJumpForwardTrigger="<c-b>"')
+vim.cmd('let g:UltiSnipsJumpBackwardTrigger="<c-z>"')
+vim.cmd('imap <C-l> <Plug>(coc-snippets-expand)')
 vim.cmd('map f <Plug>Sneak_s')
 vim.cmd('map F <Plug>Sneak_S')
 vim.cmd('nnoremap <Leader>vd :call vimspector#Launch()<CR>')
@@ -84,10 +92,11 @@ vim.cmd('nmap <Leader>vj <Plug>VimspectorStepOver')
 
 require("plugins")
 require("keymaps")
--- require ("user/feline")
+-- require("user/feline")
 require("user/lualine")
 require("user/telescope")
 require("user/toggleterm")
 vim.cmd 'source ~/.config/nvim/vimfiles/coc.vim'
 vim.cmd 'source ~/.config/nvim/vimfiles/nerdtree.vim'
 vim.cmd 'source ~/.config/nvim/vimfiles/wiki.vim'
+
