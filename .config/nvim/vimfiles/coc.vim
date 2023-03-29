@@ -1,4 +1,5 @@
 " Some servers have issues with backup files, see #649.
+" CocInstall coc-webview coc-prettier coc-pairs coc-marketplace coc-lightbulb coc-html coc-highlight coc-eslint coc-tsserver coc-markmap
 set nobackup
 set nowritebackup
 
@@ -129,6 +130,9 @@ command! -nargs=? Fold :call     CocAction('fold', <f-args>)
 
 " Add `:OR` command for organize imports of the current buffer.
 command! -nargs=0 OR   :call     CocActionAsync('runCommand', 'editor.action.organizeImport')
+
+" renaming
+nmap <F2> <Plug>(coc-rename)
 
 " Add (Neo)Vim's native statusline support.
 " NOTE: Please see `:h coc-status` for integrations with external plugins that
