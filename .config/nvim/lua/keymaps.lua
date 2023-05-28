@@ -12,8 +12,8 @@ wk.register({
     c = {
       name = "system specific",
       r = { "<cmd>CocRestart<cr>", "Restart CoC" },
+      i = { "<cmd>LspInfo<cr>", "Language Info" }
     },
-    d = { "<cmd>NERDTreeToggle<CR>", "Nerdtree" },
     f = {
       name = "file", -- optional group name
       f = { "<cmd>Telescope find_files<cr>", "Find File" },
@@ -21,6 +21,7 @@ wk.register({
       r = { "<cmd>Telescope oldfiles<cr>", "Open Recent File", noremap = false },
       h = { "<cmd>Telescope help_tags<cr>", "All tags", noremap = false },
       a = { "<cmd>Telescope live_grep<cr>", "Find All" },
+      e = { "<cmd>NERDTreeToggle<CR>", "Nerdtree" },
     },
     g = {
       name = "Fugitive",
@@ -29,7 +30,10 @@ wk.register({
       p = { "<cmd>Git push<cr>", "Push" },
       b = { "<cmd>GBrowse<cr>", "Open in Browser" },
       i = { "<cmd>Git blame<cr>", "Blame" },
+      l = { "<cmd>LazyGit<cr>", "Lazy Git" },
+      f = { "<cmd>LazyGitCurrentFile<cr>", "Lazy Git File" },
       d = {
+        h = { "<cmd>Ghdiffsplit<cr>", "Diff horizontal split" },
         d = { "<cmd>Git diff develop<cr>", "Diff develop" },
         m = { "<cmd>Git diff main<cr>", "Diff main" },
       },
@@ -37,19 +41,20 @@ wk.register({
     },
     l = {
       name = "Editor",
-      a = { "<cmd>Telescope coc code_actions<cr>", "Actions" },
-      d = { "<cmd>CocDiagnostics<cr>", "Diagnostics" },
-      D = { "<cmd>Telescope coc definitions<cr>", "Definitions" },
-      f = { "<cmd>Format<cr>", "Format" },
-      h = { "<cmd>Telescope coc commands<cr>", "Telescope CoC commands" },
-      i = { "<cmd>call ShowDocumentation()<cr>", "Show Documentation" },
-      o = { "<cmd>Vista coc<cr>", "Outline" },
-      p = { "<cmd>Telescope coc file_code_actionh<cr>", "File Code Actions" },
-      r = { "<cmd>Telescope coc references<cr>", "References" },
+      a = { "<Cmd>lua vim.lsp.buf.code_action()<cr>", "Actions" },
+      D = { "<cmd>Telescope diagnostics<cr>", "Diagnostics" },
+      d = { "<cmd>Telescope lsp_definitions<cr>", "Definitions" },
+      e = { "<cmd>lua vim.diagnostic.open_float(nil, {focus=false, scope=\"cursor\"})<CR>", "diagnostics" },
+      f = { "<cmd>lua vim.lsp.buf.format()<cr>", "Format" },
+      h = { "<cmd>Telescope commands<cr>", "Telescope CoC commands" },
+      i = { "<Cmd>lua vim.lsp.buf.hover()<cr>", "Show Documentation" },
+      o = { "<cmd>Vista nvim_lsp<cr>", "Outline" },
+      r = { "<cmd>Telescope lsp_references<cr>", "References" },
       R = { "<Plug>(coc-rename)", "Rename(F2)" },
-      t = { "<cmd>Telescope coc type_definitions<cr>", "Type Definitions" },
+      t = { "<cmd>Telescope lsp_type_definitions<cr>", "Type Definitions" },
       w = { "<cmd>FixWhitespace<cr>", "Fix Whitespace" },
-      e = { "<cmd>edit $MYVIMRC<CR>", "Edit RC" }
+      -- e = { "<cmd>edit $MYVIMRC<CR>", "Edit RC" },
+      T = { "<cmd>TroubleToggle<CR>", "Trouble" }
     },
     m = {
       name = "Macros",
@@ -59,7 +64,6 @@ wk.register({
     M = {
       name = "Misc",
       f = { "<cmd>FixWhitespace<cr>", "Fix Whitespace" },
-      m = { "<cmd>CocList marketplace<cr>", "marketplace" },
     },
     n = {
       name = "Neovim",
@@ -69,7 +73,6 @@ wk.register({
     },
     s = {
       name = "Snippets",
-      L = { "<cmd>CocList snippets<cr>", "List" },
       m = { "<cmd>UltiSnipsEdit<cr>", "Edit" },
     },
     t = {
@@ -87,11 +90,15 @@ wk.register({
       s = { "<cmdjVimwikiSearch<CR>" },
       r = { "<cmd>Telescope coc references<cr>", "References" },
     },
-},
-{
-    mode ="n",
+    x = {
+      name = "Trouble",
+      x = { "<cmd>TroubleToggle document_diagnostics<cr>", "Document Diagnostics" },
+      z = { "<cmd>TroubleToggle quickfix<cr>", "QuickFixes" },
+      w = { "<cmd>TroubleToggle workspace_diagnostics<cr>", "Workspace issues" },
+      l = { "<cmd>TroubleToggle lsp_references <cr>", "LSP References" }
+    }
+  },
+  {
+    mode = "n",
     prefix = "<leader>"
-})
-
-
-
+  })

@@ -1,61 +1,76 @@
 local fn = vim.fn
 local install_path = fn.stdpath('data') .. '/site/pack/packer/start/packer.nvim'
+
 if fn.empty(fn.glob(install_path)) > 0 then
-  packer_bootstrap = fn.system({ 'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path })
+  packer_bootstrap = fn.system({ 'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim',
+    install_path })
 end
 
-return require('packer').startup(function()
+require('packer').startup(function()
+  -- no need to configure
+  use {
+    'hrsh7th/cmp-nvim-lsp',
+    'hrsh7th/cmp-buffer',
+    'hrsh7th/cmp-path',
+    'hrsh7th/cmp-cmdline',
+    'hrsh7th/nvim-cmp',
+    'nanotech/jellybeans.vim',
+    'prettier/vim-prettier',
+    'tpope/vim-markdown',
+    'tpope/vim-fugitive',
+    'tpope/vim-commentary',
+    'sheerun/vim-polyglot',
+    'tpope/vim-rhubarb',
+    'scrooloose/nerdtree',
+    'bronson/vim-trailing-whitespace',
+    'ryanoasis/vim-devicons',
+    'airblade/vim-gitgutter',
+    'mhinz/vim-signify',
+    'jiangmiao/auto-pairs',
+    'easymotion/vim-easymotion',
+    'nvim-lua/plenary.nvim',
+    'nvim-telescope/telescope.nvim',
+    'kyazdani42/nvim-web-devicons',
+    'folke/which-key.nvim',
+    'akinsho/toggleterm.nvim',
+    'justinmk/vim-sneak',
+    'liuchengxu/vista.vim',
+    'cedarbaum/fugitive-azure-devops.vim',
+    -- "lukas-reineke/lsp-format.nvim",
+    'MunifTanjim/prettier.nvim',
+    'tpope/vim-surround',
+    'kdheepak/lazygit.nvim',
+  }
   use {
     'nvim-treesitter/nvim-treesitter',
     run = ':TSUpdate'
   }
-  use 'nanotech/jellybeans.vim'
   use {
     'nvim-lualine/lualine.nvim',
     requires = { 'kyazdani42/nvim-web-devicons', opt = true }
   }
   use { "wbthomason/packer.nvim" }
-  use 'prettier/vim-prettier'
-  use 'sbdchd/neoformat'
-  use 'ray-x/lsp_signature.nvim'
-  use 'tpope/vim-markdown'
-  use 'tpope/vim-fugitive'
-  use 'tpope/vim-commentary'
-  use 'sheerun/vim-polyglot'
-  use 'tpope/vim-rhubarb'
-  use { 'neoclide/coc.nvim', branch = 'release' }
-  use 'scrooloose/nerdtree'
-  use 'bronson/vim-trailing-whitespace'
-  use 'hashivim/vim-terraform'
-  use 'ryanoasis/vim-devicons'
-  use 'airblade/vim-gitgutter'
-  use 'mustache/vim-mustache-handlebars'
-  use 'mhinz/vim-signify'
-  use { 'fatih/vim-go', cmd = 'GoUpdateBinaries' }
-  use 'jiangmiao/auto-pairs'
-  use 'vimwiki/vimwiki'
-  use 'easymotion/vim-easymotion'
-  use { 'mg979/vim-visual-multi', branch = 'master' }
-  use 'fannheyward/telescope-coc.nvim'
-  use 'nvim-lua/plenary.nvim'
-  use 'nvim-lua/popup.nvim'
-  use 'nvim-telescope/telescope.nvim'
-  use 'kyazdani42/nvim-web-devicons'
-  use 'folke/which-key.nvim'
-  use 'lewis6991/spellsitter.nvim'
-  use 'rcarriga/nvim-notify'
-  use 'honza/vim-snippets'
-  use 'rhysd/git-messenger.vim'
-  use 'akinsho/toggleterm.nvim'
-  use 'liuchengxu/vista.vim'
-  use 'justinmk/vim-sneak'
+  use {
+    "williamboman/mason.nvim",
+    "williamboman/mason-lspconfig.nvim",
+    "neovim/nvim-lspconfig",
+  }
+  use({
+    "jose-elias-alvarez/null-ls.nvim",
+    config = function()
+      require("null-ls").setup()
+    end,
+    requires = { "nvim-lua/plenary.nvim" },
+  })
+  use {
+    "folke/trouble.nvim",
+    requires = "nvim-tree/nvim-web-devicons",
+  }
   use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
-  use 'styled-components/vim-styled-components'
-  use 'pangloss/vim-javascript'
-  use 'puremourning/vimspector'
-  use 'pantharshit00/vim-prisma'
-  use 'wuelnerdotexe/vim-astro'
   if packer_bootstrap then
     require('packer').sync()
   end
 end)
+
+require("mason").setup()
+require("mason-lspconfig").setup()
