@@ -2,18 +2,49 @@ local wk = require("which-key")
 
 ---@diagnostic disable-next-line: redundant-parameter
 wk.setup {
+  popup_mappings = {
+    scroll_down = "<c-d>", -- binding to scroll down inside the popup
+    scroll_up = "<c-u>",   -- binding to scroll up inside the popup
+  },
   -- your configuration comes here
   -- or leave it empty to use the default settings
   -- refer to the configuration section below
 }
 
 wk.register({
-    b = { "<cmd>Telescope buffers<cr>", "Buffers" },
-    c = {
-      name = "system specific",
-      r = { "<cmd>CocRestart<cr>", "Restart CoC" },
-      i = { "<cmd>LspInfo<cr>", "Language Info" }
+    b = {
+      name = "Buffers",
+      l = { "<cmd>Telescope buffers<cr>", "Buffers" },
+      j = { "<cmd>BufferLinePick<cr>", "Jump" },
+      f = { "<cmd>Telescope buffers previewer=false<cr>", "Find" },
+      p = { "<cmd>BufferLineCyclePrev<cr>", "Previous" },
+      n = { "<cmd>BufferLineCycleNext<cr>", "Next" },
+      W = { "<cmd>noautocmd w<cr>", "Save without formatting (noautocmd)" },
+      -- w = { "<cmd>BufferWipeout<cr>", "Wipeout" }, -- TODO: implement this for bufferline
+      e = {
+        "<cmd>BufferLinePickClose<cr>",
+        "Pick which buffer to close",
+      },
+      h = { "<cmd>BufferLineCloseLeft<cr>", "Close all to the left" },
+      r = {
+        "<cmd>BufferLineCloseRight<cr>",
+        "Close all to the right",
+      },
+      D = {
+        "<cmd>BufferLineSortByDirectory<cr>",
+        "Sort by directory",
+      },
+      L = {
+        "<cmd>BufferLineSortByExtension<cr>",
+        "Sort by language",
+      },
     },
+    ["c"] = { "<cmd>BufferKill<CR>", "Close Buffer" },
+    -- c = {
+    --   name = "system specific",
+    --   r = { "<cmd>CocRestart<cr>", "Restart CoC" },
+    --   i = { "<cmd>LspInfo<cr>", "Language Info" }
+    -- },
     f = {
       name = "file", -- optional group name
       f = { "<cmd>Telescope find_files<cr>", "Find File" },
@@ -21,7 +52,8 @@ wk.register({
       r = { "<cmd>Telescope oldfiles<cr>", "Open Recent File", noremap = false },
       h = { "<cmd>Telescope help_tags<cr>", "All tags", noremap = false },
       a = { "<cmd>Telescope live_grep<cr>", "Find All" },
-      e = { "<cmd>NERDTreeToggle<CR>", "Nerdtree" },
+      -- e = { "<cmd>NERDTreeToggle<CR>", "Nerdtree" },
+      e = { "<cmd>NvimTreeToggle<CR>", "File Tree" },
     },
     g = {
       name = "Fugitive",
@@ -41,7 +73,8 @@ wk.register({
     },
     l = {
       name = "Editor",
-      a = { "<Cmd>lua vim.lsp.buf.code_action()<cr>", "Actions" },
+      A = { "<Cmd>lua vim.lsp.buf.code_action()<cr>", "Old Actions" },
+      a = { "<cmd>CodeActionMenu<cr>", "Fancy Actions" },
       D = { "<cmd>Telescope diagnostics<cr>", "Diagnostics" },
       d = { "<cmd>Telescope lsp_definitions<cr>", "Definitions" },
       e = { "<cmd>lua vim.diagnostic.open_float(nil, {focus=false, scope=\"cursor\"})<CR>", "diagnostics" },
@@ -51,6 +84,10 @@ wk.register({
       o = { "<cmd>Vista nvim_lsp<cr>", "Outline" },
       r = { "<cmd>Telescope lsp_references<cr>", "References" },
       R = { "<Plug>(coc-rename)", "Rename(F2)" },
+      s = {
+        name = "Snippets",
+        m = { "<cmd>UltiSnipsEdit<cr>", "Edit" },
+      },
       t = { "<cmd>Telescope lsp_type_definitions<cr>", "Type Definitions" },
       w = { "<cmd>FixWhitespace<cr>", "Fix Whitespace" },
       -- e = { "<cmd>edit $MYVIMRC<CR>", "Edit RC" },
@@ -71,10 +108,6 @@ wk.register({
       u = { "<cmd>PackerUpdate<CR>", "Update plugins" },
       t = { "<cmd>term<CR>", "Terminal" },
     },
-    s = {
-      name = "Snippets",
-      m = { "<cmd>UltiSnipsEdit<cr>", "Edit" },
-    },
     t = {
       c = { "<cmd>tabnew<cr>", "Create Tab" },
       n = { "<cmd>tabNext<cr>", "Next Tab" },
@@ -82,6 +115,26 @@ wk.register({
       x = { "<cmd>tabclose<cr>", "Close Tab" },
     },
     p = { "<cmd>CocCommand prettier.formatFile<cr>", "prettier" },
+    q = { "<cmd>confirm q<CR>", "Quit" },
+    s = {
+      name = "Search",
+      b = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
+      c = { "<cmd>Telescope colorscheme<cr>", "Colorscheme" },
+      f = { "<cmd>Telescope find_files<cr>", "Find File" },
+      h = { "<cmd>Telescope help_tags<cr>", "Find Help" },
+      H = { "<cmd>Telescope highlights<cr>", "Find highlight groups" },
+      M = { "<cmd>Telescope man_pages<cr>", "Man Pages" },
+      r = { "<cmd>Telescope oldfiles<cr>", "Open Recent File" },
+      R = { "<cmd>Telescope registers<cr>", "Registers" },
+      t = { "<cmd>Telescope live_grep<cr>", "Text" },
+      k = { "<cmd>Telescope keymaps<cr>", "Keymaps" },
+      C = { "<cmd>Telescope commands<cr>", "Commands" },
+      l = { "<cmd>Telescope resume<cr>", "Resume last search" },
+      p = {
+        "<cmd>lua require('telescope.builtin').colorscheme({enable_preview = true})<cr>",
+        "Colorscheme with Preview",
+      },
+    },
     w = {
       w = { "<Plug>VimwikiIndex", "Index" },
       b = { "<Plug>VimwikiGoBackLink", "Go Back" },
