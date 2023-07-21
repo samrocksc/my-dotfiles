@@ -18,18 +18,14 @@ wk.register({
 			e = { "<cmd>BufferLinePickClose<cr>", "Pick which buffer to close" },
 			f = { "<cmd>Telescope buffers previewer=false<cr>", "Find" },
 			h = { "<cmd>BufferLineCloseLeft<cr>", "Close all to the left" },
-			j = { "<cmd>BufferLinePick<cr>", "Pick" },
-			l = { "<cmd>Telescope scope buffers<cr>", "Buffers" },
+			j = { "<cmd>BufferLinePick<cr>", "Jump" },
+			l = { "<cmd>Telescope buffers<cr>", "Buffers" },
 			L = { "<cmd>BufferLineSortByExtension<cr>", "Sort by language" },
 			n = { "<cmd>BufferLineCycleNext<cr>", "Next" },
 			p = { "<cmd>BufferLineCyclePrev<cr>", "Previous" },
 			r = { "<cmd>BufferLineCloseRight<cr>", "Close all to the right" },
 			W = { "<cmd>noautocmd w<cr>", "Save without formatting (noautocmd)" },
 			x = { "<cmd>bdelete<cr>", "Delete Buffer" }
-		},
-		c = {
-			name = "code",
-			l = { "<Plug>(coc-codelens-action)", "Codelense" },
 		},
 		f = {
 			name = "file",
@@ -68,18 +64,17 @@ wk.register({
 			D = { "<cmd>Telescope diagnostics<cr>", "Diagnostics" },
 			d = { "<cmd>Telescope lsp_definitions<cr>", "Definitions" },
 			e = { "<cmd>lua vim.diagnostic.open_float(nil, {focus=false, scope=\"cursor\"})<CR>", "diagnostics" },
-			f = { "<cmd>CocCommand editor.action.formatDocument<cr>", "Format" },
-			h = { "<cmd>Telescope coc commands<cr>", "Telescope CoC commands" },
-			H = { "<cmd>Telescope commands<cr>", "Telescope commands" },
-			i = { "<Cmd>call feedkeys('K', 'in')<cr>", "Show Documentation" },
-			o = { "<cmd>Vista coc<cr>", "Outline" },
-			r = { "<Plug>(coc-definition)", "References" },
+			f = { "<cmd>lua vim.lsp.buf.format()<cr>", "Format" },
+			h = { "<cmd>Telescope commands<cr>", "Telescope CoC commands" },
+			i = { "<Cmd>lua vim.lsp.buf.hover()<cr>", "Show Documentation" },
+			o = { "<cmd>Vista nvim_lsp<cr>", "Outline" },
+			r = { "<cmd>Telescope lsp_references<cr>", "References" },
 			R = { "<Plug>(coc-rename)", "Rename(F2)" },
 			s = {
 				name = "Snippets",
 				m = { "<cmd>UltiSnipsEdit<cr>", "Edit" },
 			},
-			t = { "<Plug>(coc-definition)", "Type Definitions" },
+			t = { "<cmd>Telescope lsp_type_definitions<cr>", "Type Definitions" },
 			w = { "<cmd>FixWhitespace<cr>", "Fix Whitespace" },
 			-- e = { "<cmd>edit $MYVIMRC<CR>", "Edit RC" },
 			T = { "<cmd>TroubleToggle<CR>", "Trouble" }
@@ -99,13 +94,14 @@ wk.register({
 			u = { "<cmd>PackerUpdate<CR>", "Update plugins" },
 			t = { "<cmd>term<CR>", "Terminal" },
 		},
+		t = {
+			c = { "<cmd>tabnew<cr>", "Create Tab" },
+			n = { "<cmd>tabNext<cr>", "Next Tab" },
+			p = { "<cmd>tabprevious<cr>", "Previous Tab" },
+			x = { "<cmd>tabclose<cr>", "Close Tab" },
+		},
 		p = { "<cmd>CocCommand prettier.formatFile<cr>", "prettier" },
 		q = { "<cmd>confirm q<CR>", "Quit" },
-		r = {
-			name = "Search",
-			e = {"<Plug>(coc-codeaction-refactor)", "refactor"},
-			l = {"<Plug>(coc-codeaction-refactor-selected)", "refactor line"}
-		},
 		s = {
 			name = "Search",
 			b = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
@@ -125,13 +121,6 @@ wk.register({
 				"Colorscheme with Preview",
 			},
 		},
-		t = {
-			name = "Tabs",
-			t = { "<cmd>tabnew<cr>", "Create Tab" },
-			n = { "<cmd>tabNext<cr>", "Next Tab" },
-			p = { "<cmd>tabprevious<cr>", "Previous Tab" },
-			x = { "<cmd>tabclose<cr>", "Close Tab" },
-		},
 		w = {
 			w = { "<Plug>VimwikiIndex", "Index" },
 			b = { "<Plug>VimwikiGoBackLink", "Go Back" },
@@ -145,6 +134,7 @@ wk.register({
 			x = { "<cmd>TroubleToggle document_diagnostics<cr>", "Document Diagnostics" },
 			z = { "<cmd>TroubleToggle quickfix<cr>", "QuickFixes" },
 			w = { "<cmd>TroubleToggle workspace_diagnostics<cr>", "Workspace issues" },
+			l = { "<cmd>TroubleToggle lsp_references <cr>", "LSP References" }
 		}
 	},
 	{

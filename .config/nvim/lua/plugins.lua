@@ -1,12 +1,18 @@
-require("lazy").setup({
+local Plugins = {
   "folke/which-key.nvim",
-  { "folke/neoconf.nvim",      cmd = "Neoconf" },
   "folke/neodev.nvim",
-  'hrsh7th/cmp-nvim-lsp',
-  'hrsh7th/cmp-buffer',
-  'hrsh7th/cmp-path',
-  'hrsh7th/cmp-cmdline',
-  'hrsh7th/nvim-cmp',
+  -- 'hrsh7th/cmp-nvim-lsp',
+  -- 'hrsh7th/cmp-buffer',
+  -- 'hrsh7th/cmp-path',
+  -- 'hrsh7th/cmp-cmdline',
+  -- 'hrsh7th/nvim-cmp',
+  ---- "lukas-reineke/lsp-format.nvim",
+  -- "williamboman/mason.nvim",
+  -- "williamboman/mason-lspconfig.nvim",
+  -- "neovim/nvim-lspconfig",
+  -- 'jose-elias-alvarez/null-ls.nvim' -- RIP
+  -- ColorSchemes
+  'wuelnerdotexe/vim-enfocado',
   'nanotech/jellybeans.vim',
   'luisiacc/gruvbox-baby',
   'prettier/vim-prettier',
@@ -29,51 +35,32 @@ require("lazy").setup({
   'justinmk/vim-sneak',
   'liuchengxu/vista.vim',
   'cedarbaum/fugitive-azure-devops.vim',
-  "lukas-reineke/lsp-format.nvim",
   'MunifTanjim/prettier.nvim',
   'tpope/vim-surround',
   'kdheepak/lazygit.nvim',
   "RRethy/vim-illuminate",
   "lewis6991/gitsigns.nvim",
   'antoinemadec/FixCursorHold.nvim',
-  'folke/neodev.nvim',
-  "williamboman/mason.nvim",
-  "williamboman/mason-lspconfig.nvim",
-  "neovim/nvim-lspconfig",
+  "github/copilot.vim",
+  "prisma/vim-prisma",
+  "mfussenegger/nvim-lint",
+  'nvim-tree/nvim-tree.lua',
+  "lewis6991/hover.nvim",
+  'fannheyward/telescope-coc.nvim',
+  'xiyaowong/coc-code-action-menu.nvim',
+  "tiagovla/scope.nvim",
+  'akinsho/bufferline.nvim',
+  'nvim-lualine/lualine.nvim',
+  'nvim-telescope/telescope-fzf-native.nvim',
+  "folke/trouble.nvim",
+  'nvim-treesitter/nvim-treesitter',
+  { "folke/neoconf.nvim", cmd = "Neoconf" },
+  { "neoclide/coc.nvim",  branch = 'release' },
   {
     'weilbith/nvim-code-action-menu',
     cmd = 'CodeActionMenu'
   },
-  {
-    'nvim-tree/nvim-tree.lua',
-    requires = {
-      'nvim-tree/nvim-web-devicons',
-    },
-  },
-  { 'airblade/vim-gitgutter',  branch = 'main' },
-  { 'akinsho/bufferline.nvim', requires = 'nvim-tree/nvim-web-devicons' },
-  {
-    'nvim-treesitter/nvim-treesitter',
-    run = ':TSUpdate'
-  },
-  {
-    'nvim-lualine/lualine.nvim',
-    requires = { 'kyazdani42/nvim-web-devicons', opt = true }
-  },
-
-  {
-    "jose-elias-alvarez/null-ls.nvim",
-    config = function()
-      require("null-ls").setup()
-    end,
-    requires = { "nvim-lua/plenary.nvim" },
-  },
-  {
-    "folke/trouble.nvim",
-    requires = "nvim-tree/nvim-web-devicons",
-  },
-  { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
+  { 'airblade/vim-gitgutter', branch = 'main' },
 }
-)
-require("mason").setup()
-require("mason-lspconfig").setup()
+
+return Plugins

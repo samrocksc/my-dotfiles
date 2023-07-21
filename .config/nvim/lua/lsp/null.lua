@@ -14,7 +14,7 @@ local sources = {
   -- null_ls.builtins.diagnostics.spectral,
   null_ls.builtins.diagnostics.yamllint,
   null_ls.builtins.diagnostics.terraform_validate,
-  null_ls.builtins.completion.spell
+  -- null_ls.builtins.completion.spell
 }
 
 local on_attach = function(client, bufnr)

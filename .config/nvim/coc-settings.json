@@ -24,8 +24,16 @@
   "javascript.suggest.autoImports": true,
   "typescript.suggest.autoImports": true,
   "diagnostic.floatConfig": {},
-  "languageserver": {},
   "suggest.enablePreview": true,
   "suggest.floatEnable": true,
   "suggest.detailField": "abbr",
+  "languageserver": {
+    "terraform": {
+      "command": "terraform-ls",
+      "args": ["serve"],
+      "filetypes": ["terraform", "tf"],
+      "initializationOptions": {},
+      "settings": {}
+    }
+  }
 }
