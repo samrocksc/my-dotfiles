@@ -1,15 +1,9 @@
 local wezterm = require 'wezterm'
 local gui = wezterm.gui
 local config = {}
-config.font =
-  wezterm.font('JetBrains Mono', { weight = 'Bold', italic = false })
--- config.font = wezterm.font("BlexMono Nerd Font Mono")
--- config.font = wezterm.font("FuraMono Nerd Font")
--- config.font = wezterm.font("Hack Nerd Font")
--- config.font = wezterm.font("Hack Nerd Font Mono")
-config.font_size = 15.0
+config.font_size = 13.0
 config.hide_tab_bar_if_only_one_tab = true
--- config.window_decorations = "none"
+-- config.window_decorations = "RESIZE"
 config.window_padding = {
   left = 2,
   right = 2,

@@ -8,6 +8,7 @@
     "json",
     "javascriptreact",
     "typescript.tsx",
+    "typescriptreact",
     "css",
     "markdown",
     "Markdown"
@@ -35,5 +36,8 @@
       "initializationOptions": {},
       "settings": {}
     }
-  }
+  },
+  "Lua.hover.enable": true,
+  "python.linting.flake8Enabled": true,
+  "python.linting.pydocstyleEnabled": true
 }
