@@ -30,6 +30,7 @@ fi
 # user shit
 
 ## alias shit
+alias nv='neovide --multigrid .'
 
 ### general shit
 alias resource='source ~/.zshrc'
@@ -54,14 +55,14 @@ gls() {
 
 ### docker shit
 alias catdocker='cat ~/.zshrc | grep docker'
-alias dc='docker-compose'
-alias dcr='docker-compose restart'
-alias dcrsb='docker-compose restart frontend-storybook'
-alias dclogs='docker-compose logs -f'
-alias dcrimraf='docker-compose stop && docker-compose up'
-alias dcrapi='docker-compose restart api'
-alias dcrfe='docker-compose restart frontend'
-alias dcps='docker-compose ps'
+alias dc='docker compose'
+alias dcr='docker compose restart'
+alias dcrsb='docker compose restart frontend-storybook'
+alias dclogs='docker compose logs -f'
+alias dcrimraf='docker compose stop && docker compose up'
+alias dcrapi='docker compose restart api'
+alias dcrfe='docker compose restart frontend'
+alias dcps='docker compose ps'
 alias dps='docker ps'
 alias dex='docker exec -t'
 alias dimages='docker images'
@@ -116,14 +117,21 @@ export PATH="/usr/local/bin:$PATH"
 export DENO_INSTALL="/Users/sam/.deno"
 export PATH="$DENO_INSTALL/bin:$PATH"
 export DOTNET_ROOT="/opt/homebrew/opt/dotnet/libexec"
+export PATH="/home/linuxbrew/.linuxbrew/bin:$PATH"
+export PATH="$HOME/.local/share/pypoetry/venv/bin:$PATH"
+export PATH="/opt/Logseq-linux-x64:$PATH"
+export PATH="$HOME/.cargo/env:$PATH"
+
 
 source ~/.local.env
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+# eval "$(/bin/brew shellenv)"
+
 
 ## pyenv shit
-alias brew='env PATH="${PATH//$(pyenv root)\/shims:/}" brew'
+# alias brew='env PATH="${PATH//$(pyenv root)\/shims:/}" brew'
 
-export PYENV_ROOT="$HOME/.pyenv"
-command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
+# export PYENV_ROOT="$HOME/.pyenv"
+# command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+# eval "$(pyenv init -)"
