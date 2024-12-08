@@ -1,41 +1,28 @@
-# Add deno completions to search path
-if [[ ":$FPATH:" != *":/home/sam/.zsh/completions:"* ]]; then export FPATH="/home/sam/.zsh/completions:$FPATH"; fi
-# If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
+source $HOME/antigen.zsh
 
-# Path to your oh-my-zsh installation.
-export ZSH="$HOME/.oh-my-zsh"
-export LC_CTYPE=en_US.UTF-8
-export LC_ALL=en_US.UTF-8
-export GH_HOME="/home/syn"
-export FZF_BASE=/home/linuxbrew/.linuxbrew/bin/fzf
-export FZF_DEFAULT_OPTS='--height 40% --layout=reverse --border'
+# Load the oh-my-zsh's library.
+antigen use oh-my-zsh
 
-# Set name of the theme to load --- if set to "random", it will
-# load a random theme each time oh-my-zsh is loaded, in which case,
-# to know which specific one was loaded, run: echo $RANDOM_THEME
-# See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-# ZSH settings
-DISABLE_AUTO_TITLE="true"
-ZSH_THEME="robbyrussell"
-# Uncomment the following line to enable command auto-correction.
-ENABLE_CORRECTION="true"
+# Bundles from the default repo (robbyrussell's oh-my-zsh).
+antigen bundle git
+antigen bundle deno
+antigen bundle dotenv
+antigen bundle pip
+antigen bundle lein
+antigen bundle command-not-found
+antigen bundle docker
+antigen bundle fzf
 
-# Standard plugins can be found in $ZSH/plugins/
-# Custom plugins may be added to $ZSH_CUSTOM/plugins/
-plugins=(git fzf)
-source $ZSH/oh-my-zsh.sh
+# Syntax highlighting bundle.
+antigen bundle zsh-users/zsh-completions
+antigen bundle zsh-users/zsh-autosuggestions
+antigen bundle zsh-users/zsh-syntax-highlighting
 
-if [[ -n $SSH_CONNECTION ]]; then
-  export EDITOR='nvim'
-else
-  export EDITOR='nvim'
-fi
+# Load the theme.
+antigen theme robbyrussell
 
-# user shit
-
-## alias shit
-alias nv='neovide --multigrid .'
+# Tell Antigen that you're done.
+antigen apply
 
 ### general shit
 alias resource='source ~/.zshrc'
@@ -118,41 +105,26 @@ alias gdc='git diff --cached'
 
 ## hx shit
 
-
-
 ## path shit
 export PATH="$HOME/.local/share/applications:$PATH"
 export PATH="/usr/local/bin:$PATH"
 export DENO_INSTALL="/Users/sam/.deno"
 export PATH="$DENO_INSTALL/bin:$PATH"
-# export DOTNET_ROOT="/opt/homebrew/opt/dotnet/libexec"
-export PATH="/opt/helix:$PATH"
 export PATH="/home/linuxbrew/.linuxbrew/bin:$PATH"
-# export PATH="$HOME/.local/share/pypoetry/venv/bin:$PATH"
-# export PATH="/opt/Logseq-linux-x64:$PATH"
 export PATH="$HOME/.cargo/env:$PATH"
+export PATH=$PATH:/usr/local/go/bin
 export PATH="/home/linuxbrew/.linuxbrew/opt/llvm/bin:$PATH"
 
 
 
 source ~/.local.env
 
+# FZF shit
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-# eval "$(/bin/brew shellenv)"
-
-
-## pyenv shit
-# alias brew='env PATH="${PATH//$(pyenv root)\/shims:/}" brew'
-
-# export PYENV_ROOT="$HOME/.pyenv"
-# command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
-# eval "$(pyenv init -)"
-
-### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
-# export PATH="/home/sam/.rd/bin:$PATH"
-### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
+# Pyenv shit
 export PYENV_ROOT="$HOME/.pyenv"
 [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
+
 . "/Users/sam/.deno/env"
