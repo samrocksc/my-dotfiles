@@ -1,3 +1,4 @@
+export FZF_BASE=/home/linuxbrew/.linuxbrew/bin/fzf
 source $HOME/antigen.zsh
 
 # Load the oh-my-zsh's library.
