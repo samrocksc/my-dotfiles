@@ -1,0 +1,101 @@
+// Zed keymap
+//
+// For information on binding keys, see the Zed
+// documentation: https://zed.dev/docs/key-bindings
+//
+// To see the default key bindings run `zed: open default keymap`
+// from the command palette.
+[
+  {
+    "context": "Workspace",
+    "bindings": {
+      "shift shift": "file_finder::Toggle",
+      "ctrl-h": ["workspace::ActivatePaneInDirection", "Left"],
+      "ctrl-l": ["workspace::ActivatePaneInDirection", "Right"],
+      "ctrl-k": ["workspace::ActivatePaneInDirection", "Up"],
+      "ctrl-j": ["workspace::ActivatePaneInDirection", "Down"],
+      "ctrl-e ctrl-f": "workspace::ToggleLeftDock",
+      "ctrl-e ctrl-g": "workspace::ToggleRightDock",
+      "ctrl-e ctrl-t": "workspace::ToggleBottomDock",
+      "ctrl-e ctrl-o": "outline_panel::Open"
+    }
+  },
+  {
+    "context": "Workspace && !Terminal",
+    "bindings": {
+      "ctrl-a ctrl-a": "assistant::ToggleFocus",
+      "ctrl-a ctrl-q": "assistant::InlineAssist",
+      "ctrl-b ctrl-b": "tab_switcher::Toggle"
+    }
+  },
+  {
+    "context": "Terminal",
+    "bindings": {
+      "ctrl-c": null
+    }
+  },
+  {
+    "context": "Editor",
+    "bindings": {
+      // "j k": ["workspace::SendKeystrokes", "escape"]
+      "ctrl-space": "editor::ShowCompletions"
+    }
+  },
+  {
+    "context": "Editor && vim_mode == insert",
+    "bindings": {
+      "ctrl-space": "editor::ShowCompletions"
+    }
+  },
+  {
+    "context": "Editor && vim_mode == normal && vim_operator == none && !VimWaiting",
+    "bindings": {
+      "ctrl-h": ["workspace::ActivatePaneInDirection", "Left"],
+      "ctrl-l": ["workspace::ActivatePaneInDirection", "Right"],
+      "ctrl-k": ["workspace::ActivatePaneInDirection", "Up"],
+      "ctrl-j": ["workspace::ActivatePaneInDirection", "Down"]
+    }
+  },
+  {
+    "context": "Editor && vim_mode == normal && vim_operator == none && !VimWaiting",
+    "bindings": {
+      "space b b": "tab_switcher::Toggle",
+      "space c a": "editor::ToggleCodeActions",
+      "space c f": "editor::Format",
+      "space c t": "debug::OpenSyntaxTreeView",
+      "space a q": "assistant::InlineAssist",
+      "space a a": "assistant::ToggleFocus",
+      "space c o": "outline::Toggle",
+      "space e f": "workspace::ToggleLeftDock",
+      "space e g": "workspace::ToggleRightDock",
+      "space e t": "workspace::ToggleBottomDock",
+      "space e o": "outline_panel::Open",
+      "space g c": "editor::CopyPermalinkToLine",
+      "space g o": "editor::OpenPermalinkToLine",
+      "space f e": "workspace::ToggleLeftDock",
+      "space f f": "file_finder::Toggle",
+      "space f p": "projects::OpenRecent",
+      "ctrl-t": "workspace::ToggleBottomDock",
+      "space /": "project_search::SearchInNew",
+      "shift-h": "pane::ActivatePrevItem",
+      "shift-l": "pane::ActivateNextItem",
+      "ctrl-space": "editor::ShowCompletions"
+    }
+  },
+  {
+    "context": "ProjectPanel",
+    "bindings": {
+      "escape": "workspace::ToggleLeftDock"
+    }
+  },
+  {
+    "context": "Terminal",
+    "bindings": {
+      "ctrl-n": "workspace::NewTerminal",
+      "ctrl-d": "pane::CloseActiveItem",
+      "ctrl-t": "workspace::ToggleBottomDock",
+      "ctrl-shift-f": "workspace::ToggleZoom"
+      // "escape": "workspace::ToggleBottomDock"
+    }
+  }
+]
