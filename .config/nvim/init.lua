@@ -1,139 +1,61 @@
----@diagnostic disable: undefined-global
-local vim = vim
-local map = vim.api.nvim_set_keymap -- set keys
-local opt = vim.opt
-local o = vim.o                     -- set global options
-local wo = vim.wo                   -- windows options(line numbers)
-local bo = vim.bo                   -- buffer local
-local g = vim.g                     -- global
--- local cmd = vim.cmd
-local api = vim.api
-local Plugins = require('plugins')
-g.mapleader = " "
-
--- Requirements
--- brew install hashicorp/tap/terraform-ls
--- :CocInstall coc-terraform coc-json coc-tsserver coc-prettier
-
-local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
-if not vim.loop.fs_stat(lazypath) then
-  vim.fn.system({
-    "git",
-    "clone",
-    "--filter=blob:none",
-    "https://github.com/folke/lazy.nvim.git",
-    "--branch=stable", -- latest stable release
-    lazypath,
-  })
+if vim.g.vscode then
+  local vscode = require("vscode-neovim")
+  vim.g.mapleader = " "
+  vim.cmd("nnoremap <leader>we :pu=strftime('%d.%m.%Y')<CR>")
+  vim.cmd("nnoremap <leader>lf :lua require('vscode-neovim').call('editor.action.formatSelection.none')<CR>")
+  vim.notify = vscode.notify
+  vim.g.autoformat = true
 end
-opt.rtp:prepend(lazypath)
-require("lazy").setup(Plugins)
 
+-- Allow clipboard copy paste in neovim
+vim.api.nvim_set_keymap("", "<D-v>", "+p<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("!", "<D-v>", "<C-R>+", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("t", "<D-v>", "<C-R>+", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("v", "<D-v>", "<C-R>+", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "ff", 'LazyVim.pick("files", { root = false })', { noremap = true, silent = true })
+vim.o.guifont = "FiraCode Nerd Font Mono:h16"
+vim.opt.laststatus = 3
 
--- require('plenary.reload').reload_module('init', true)
+if vim.g.neovide then
+  -- Put anything you want to happen only in Neovide here
+  -- vim.o.guifont = "Source Code Pro:h12"
+  -- vim.g.neovide_fullscreen = true
+  vim.o.guifont = "FiraCode Nerd Font Mono:h16"
+  -- Allow clipboard copy paste in neovim
+  vim.g.neovide_padding_top = 0
+  vim.g.neovide_padding_bottom = 0
+  vim.g.neovide_padding_right = 0
+  vim.g.neovide_padding_left = 0
+  vim.g.neovide_cursor_animate_in_insert_mode = true
 
--- This is the basic setup for reassigning hjkl keys to vim keys
-map("t", "<C-t>", "<cmd>ToggleTerm size=40 direction=float<cr>", { noremap = true })
-map("", "<C-t>", "<cmd>ToggleTerm size=40 direction=float<cr>", { noremap = true })
-map("n", "<C-h>", "<C-w>h", {})
-map("n", "<C-j>", "<C-w>j", {})
-map("n", "<C-k>", "<C-w>k", {})
-map("n", "<C-l>", "<C-w>l", {})
+  -- iteration 1
+  -- vim.keymap.set("n", "<D-s>", ":w<CR>") -- Save
+  -- vim.keymap.set("v", "<D-c>", '"+y') -- Copy
+  -- vim.keymap.set("n", "<D-v>", '"+P') -- Paste normal mode
+  --
+  -- iteration 2
+  -- vim.keymap.set("v", "<C-S-C>", '"+y') -- Copy
+  -- vim.keymap.set("n", "<C-S-V>", '"+P') -- Paste normal mode
+  -- vim.keymap.set("v", "<C-S-V>", '"+P') -- Paste normal mode
+  --
+  -- -- iteration 3
+  -- vim.api.nvim_set_keymap("v", "<sc-c>", '"+y', { noremap = true })
+  -- vim.api.nvim_set_keymap("n", "<sc-v>", 'l"+P', { noremap = true })
+  -- vim.api.nvim_set_keymap("v", "<sc-v>", '"+P', { noremap = true })
+  -- vim.api.nvim_set_keymap("c", "<sc-v>", '<C-o>l<C-o>"+<C-o>P<C-o>l', { noremap = true })
+  -- vim.api.nvim_set_keymap("i", "<sc-v>", '<ESC>l"+Pli', { noremap = true })
+  -- vim.api.nvim_set_keymap("t", "<sc-v>", '<C-\\><C-n>"+Pi', { noremap = true })
 
+  -- iteration 4
+  -- vim.keymap.set("v", "<D-v>", '"+P') -- Paste visual mode
+  -- vim.keymap.set("c", "<D-v>", "<C-R>+") -- Paste command mode
+  -- vim.keymap.set("i", "<D-v>", '<ESC>l"+Pli') -- Paste insert mode
+  -- vim.keymap.set({ "n", "x" }, "<C-S-C>", '"+y', { desc = "Copy system clipboard" })
+  -- vim.keymap.set({ "n", "x" }, "<C-S-V>", '"+p', { desc = "Paste system clipboard" })
+end
 
-o.clipboard = "unnamedplus"
-o.ignorecase = true
-o.cmdheight = 1
-o.updatetime = 250
-o.swapfile = true
-o.dir = '/tmp'
-o.smartcase = true
-o.laststatus = 2
-o.hlsearch = true
-o.incsearch = true
-o.ignorecase = true
-o.scrolloff = 12
-o.hidden = true
-o.autoindent = true
+-- bootstrap lazy.nvim, LazyVim and your plugins
+vim.o.clipboard = "unnamedplus"
+vim.opt.relativenumber = false
 
-
-wo.number = true
-wo.wrap = true
-
-bo.expandtab = true
-
-api.nvim_set_option("termguicolors", true)
-
-vim.cmd [[autocmd! CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, {focus=false})]]
-vim.cmd('syntax enable')
-vim.cmd('colorscheme jellybeans')
-vim.cmd('set smartindent')
-vim.cmd('set autoindent')
-vim.cmd('set backupcopy=yes')
-vim.cmd('set cursorline!')
-vim.cmd('set lazyredraw')
-vim.cmd('set encoding=utf-8')
-vim.cmd('set nocompatible')
-vim.cmd('set ttyfast')
-vim.cmd('set autoread')
-vim.cmd('set backspace=2')
-vim.cmd('set backspace=indent,eol,start')
-vim.cmd('set directory-=.')
-vim.cmd('set incsearch')
-vim.cmd('set list')
-vim.cmd('set listchars=tab:▸\\ ,trail:▫')
-vim.cmd('set ruler')
-vim.cmd('set scrolloff=3')
-vim.cmd('set showcmd')
-vim.cmd('set tabstop=2')
-vim.cmd('set wildignore=log/**,node_modules/**,target/**,tmp/**,tags*,*.rbc')
-vim.cmd('set mouse=a')
--- vim.cmd('set cursorline')
-vim.cmd('hi CursorLine term=bold cterm=bold guibg=Grey20')
-vim.cmd('nnoremap <leader>we :pu=strftime(\'%d.%m.%Y\')<CR>')
-vim.cmd('nnoremap <leader>wt :pu=strftime(\'%H%M\')')
-vim.cmd('let g:sneak#label = 1')
-vim.cmd('let g:UltiSnipsExpandTrigger="<c-h>"')
-vim.cmd('let g:UltiSnipsJumpForwardTrigger="<c-b>"')
-vim.cmd('let g:UltiSnipsJumpBackwardTrigger="<c-z>"')
-vim.cmd('map f <Plug>Sneak_s')
-vim.cmd('map F <Plug>Sneak_S')
-vim.cmd('nnoremap <Leader>vd :call vimspector#Launch()<CR>')
-vim.cmd('nnoremap <Leader>ve :call vimspector#Reset()<CR>')
-vim.cmd('nnoremap <Leader>vc :call vimspector#Continue()<CR>')
-vim.cmd('nnoremap <Leader>vt :call vimspector#ToggleBreakpoint()<CR>')
-vim.cmd('nnoremap <Leader>vT :call vimspector#ClearBreakpoints()<CR>')
-vim.cmd('set laststatus=0')
-vim.cmd('set showmode')
-vim.cmd('set ruler')
-
-require("plugins")
-require("keymaps")
-
-require("user/trouble")
-
--- require('lsp/mason')
--- require('lsp/typescript')
--- require('lsp/null')
--- require('lsp/nvim-lint')
-require('lsp/hover')
--- require('lsp/cmp')
--- require('lsp/tester')
-
--- require('lsp/prettier')
-
-require("user/lualine")
-require("user/telescope")
-require("user/toggleterm")
-require('configs/illuminate')
-require('configs/bufferline')
-require('configs/gitsigns')
-require('configs/fixcursorhold')
-require('configs/nvim-tree')
-require('configs/coc')
-require('configs/code-action-menu')
-require('configs/scope')
-require('configs/neovide')
-
-vim.cmd 'source ~/.config/nvim/vimfiles/hmm.vim'
-vim.cmd 'source ~/.config/nvim/vimfiles/nerdtree.vim'
+require("config.lazy")
