@@ -1,0 +1,141 @@
+// Zed keymap
+//
+// For information on binding keys, see the Zed
+// documentation: https://zed.dev/docs/key-bindings
+//
+// To see the default key bindings run `zed: open default keymap`
+// from the command palette.
+[
+  {
+    "context": "Workspace",
+    "bindings": {
+      "shift shift": "file_finder::Toggle",
+      "alt-g": [
+        "task::Spawn",
+        { "task_name": "start lazygit", "reveal_target": "center" }
+      ],
+      "ctrl-h": "workspace::ActivatePaneLeft",
+      "ctrl-l": "workspace::ActivatePaneRight",
+      "ctrl-k": "workspace::ActivatePaneUp",
+      "ctrl-j": "workspace::ActivatePaneDown",
+      "ctrl-f ctrl-p": "projects::OpenRecent",
+      "ctrl-e ctrl-f": "workspace::ToggleLeftDock",
+      "ctrl-e ctrl-g": "workspace::ToggleRightDock",
+      "ctrl-e ctrl-t": "workspace::ToggleBottomDock",
+      "ctrl-e ctrl-o": "outline::Toggle"
+    }
+  },
+  {
+    "context": "Workspace && !Terminal",
+    "bindings": {
+      "ctrl-a ctrl-a": "assistant::ToggleFocus",
+      "ctrl-a ctrl-q": "assistant::InlineAssist",
+      "ctrl-b ctrl-b": "tab_switcher::Toggle"
+    }
+  },
+  {
+    "context": "Terminal",
+    "bindings": {
+      "ctrl-c": null
+    }
+  },
+  {
+    "context": "Editor",
+    "bindings": {
+      "j k": ["workspace::SendKeystrokes", "escape"],
+      "ctrl-space": "editor::ShowCompletions"
+    }
+  },
+  {
+    "context": "Editor && vim_mode == insert",
+    "bindings": {
+      "ctrl-space": "editor::ShowCompletions"
+    }
+  },
+  {
+    "context": "Editor && vim_mode == normal && vim_operator == none && !VimWaiting",
+    "bindings": {
+      "ctrl-h": "workspace::ActivatePaneLeft",
+      "ctrl-l": "workspace::ActivatePaneRight",
+      "ctrl-k": "workspace::ActivatePaneUp",
+      "ctrl-j": "workspace::ActivatePaneDown"
+    }
+  },
+  {
+    "context": "AssistantPanel",
+    "bindings": {
+      "ctrl-k ctrl-c": "assistant::CopyCode",
+      "ctrl-shift-e": "project_panel::ToggleFocus",
+      "ctrl-g": "search::SelectNextMatch",
+      "ctrl-shift-g": "search::SelectPreviousMatch",
+      "ctrl-alt-/": "assistant::ToggleModelSelector",
+      "ctrl-k ctrl-h": "assistant::DeployHistory",
+      // "ctrl-k ctrl-l": "assistant::OpenPromptLibrary",
+      "ctrl-k ctrl-n": "assistant::NewChat",
+      "new": "assistant::NewChat",
+      "ctrl-t": "assistant::NewChat",
+      "ctrl-a ctrl-d": ["workspace::SendKeystrokes", "/default enter enter"]
+    }
+  },
+  {
+    "context": "Editor && vim_mode == normal && vim_operator == none && !VimWaiting",
+
+    "bindings": {
+      "space a q": "assistant::InlineAssist",
+      "space a a": "assistant::ToggleFocus",
+      "space b b": "tab_switcher::Toggle",
+      "space b d": "pane::CloseActiveItem",
+      "space b p": "pane::TogglePinTab",
+      "space b c r": "pane::CloseItemsToTheRight",
+      "space c a": "editor::ToggleCodeActions",
+      "space c f": "editor::Format",
+      "space c F": "editor::OrganizeImports",
+      "space c t": "debug::OpenSyntaxTreeView",
+      "space c o": "outline::Toggle",
+      "space e f": "workspace::ToggleLeftDock",
+      "space e g": "workspace::ToggleRightDock",
+      "space e t": "workspace::ToggleBottomDock",
+      "space e o": "outline_panel::Open",
+      "space e e": "project_panel::ToggleFocus",
+      "space g g": "git_panel::ToggleFocus",
+      "space g c": "editor::CopyPermalinkToLine",
+      "space g o": "editor::OpenPermalinkToLine",
+      "space f e": "project_panel::ToggleFocus",
+      "space f f": "file_finder::Toggle",
+      "space f p": "projects::OpenRecent",
+      "space l h": "editor::ToggleInlayHints",
+      "space x x": "diagnostics::Deploy",
+      "space x i": "editor::ToggleInlineDiagnostics",
+      "space p d": "pane::CloseAllItems",
+      "space p r": "pane::CloseItemsToTheRight",
+      "space p l": "pane::CloseItemsToTheLeft",
+      "ctrl-t": "workspace::ToggleBottomDock",
+      "space /": "workspace::NewSearch",
+      "shift-h": "pane::ActivatePreviousItem",
+      "shift-l": "pane::ActivateNextItem",
+      "ctrl-space": "editor::ShowCompletions",
+      "ctrl-shift->": "assistant::QuoteSelection",
+      "ctrl-k ctrl-s": "zed::OpenKeymap",
+      "ctrl-shift-;": "editor::ToggleInlayHints"
+    }
+  },
+  {
+    "context": "ProjectPanel",
+    "bindings": {
+      "escape": "workspace::ToggleLeftDock"
+    }
+  },
+  {
+    "context": "Terminal",
+    "bindings": {
+      "ctrl-z": "workspace::ToggleZoom",
+      "ctrl-p": null,
+      "ctrl-n": null,
+      "ctrl-shift-n": "workspace::NewTerminal",
+      "ctrl-d": "pane::CloseActiveItem",
+      "ctrl-t": "workspace::ToggleBottomDock",
+      "ctrl-shift-f": "workspace::ToggleZoom"
+      // "escape": "workspace::ToggleBottomDock"
+    }
+  }
+]
