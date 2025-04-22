@@ -13,12 +13,14 @@ vim.api.nvim_set_keymap("!", "<D-v>", "<C-R>+", { noremap = true, silent = true 
 vim.api.nvim_set_keymap("t", "<D-v>", "<C-R>+", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("v", "<D-v>", "<C-R>+", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "ff", 'LazyVim.pick("files", { root = false })', { noremap = true, silent = true })
+vim.o.guifont = "FiraCode Nerd Font Mono:h16"
+vim.opt.laststatus = 3
 
 if vim.g.neovide then
   -- Put anything you want to happen only in Neovide here
   -- vim.o.guifont = "Source Code Pro:h12"
   -- vim.g.neovide_fullscreen = true
-  vim.o.guifont = "FiraCode Nerd Font Mono:h15"
+  vim.o.guifont = "FiraCode Nerd Font Mono:h16"
   -- Allow clipboard copy paste in neovim
   vim.g.neovide_padding_top = 0
   vim.g.neovide_padding_bottom = 0
